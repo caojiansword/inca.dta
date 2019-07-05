@@ -1,0 +1,259 @@
+2019-07-05 17:53:04,057 [restartedMain] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 10872 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 17:53:04,058 [restartedMain] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 17:53:04,417 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 17:53:04,417 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 17:53:04,418 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 17:53:04,433 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 17:53:04,434 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 374 ms
+2019-07-05 17:53:04,598 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 17:53:04,667 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-07-05 17:53:04,688 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 17:53:04,689 [restartedMain] INFO  com.inca.Application - Started Application in 0.712 seconds (JVM running for 84.918)
+2019-07-05 17:53:04,691 [restartedMain] INFO  o.s.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2019-07-05 17:53:14,770 [restartedMain] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 7812 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 17:53:14,775 [restartedMain] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 17:53:14,840 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-07-05 17:53:14,840 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-07-05 17:53:16,198 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 17:53:16,210 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 17:53:16,218 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 17:53:16,219 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 17:53:16,229 [restartedMain] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 17:53:16,313 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 17:53:16,314 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1474 ms
+2019-07-05 17:53:16,852 [restartedMain] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 17:53:17,165 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-07-05 17:53:17,194 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 17:53:17,202 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 17:53:17,219 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 17:53:17,223 [restartedMain] INFO  com.inca.Application - Started Application in 2.971 seconds (JVM running for 3.503)
+2019-07-05 17:57:14,790 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 11212 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 17:57:14,792 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 17:57:16,085 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 17:57:16,096 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 17:57:16,104 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 17:57:16,104 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 17:57:16,113 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 17:57:16,223 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 17:57:16,223 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1330 ms
+2019-07-05 17:57:16,688 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 17:57:16,973 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 17:57:16,984 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 17:57:16,998 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 17:57:17,001 [main] INFO  com.inca.Application - Started Application in 2.594 seconds (JVM running for 2.953)
+2019-07-05 17:59:53,232 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 11052 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 17:59:53,233 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 17:59:55,785 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2019-07-05 17:59:58,147 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2019-07-05 17:59:58,985 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 17:59:58,985 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 17:59:58,998 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 17:59:59,183 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 17:59:59,184 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5859 ms
+2019-07-05 17:59:59,808 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:00:00,154 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2019-07-05 18:00:00,165 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:00:00,183 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path ''
+2019-07-05 18:00:00,186 [main] INFO  com.inca.Application - Started Application in 7.432 seconds (JVM running for 7.907)
+2019-07-05 18:00:08,334 [http-nio-8888-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-05 18:00:08,334 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-05 18:00:08,343 [http-nio-8888-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2019-07-05 18:01:05,483 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 10992 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:01:05,485 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:01:09,407 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:01:10,367 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:01:11,284 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:01:11,285 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:01:11,299 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:01:11,513 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:01:11,513 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5922 ms
+2019-07-05 18:01:12,189 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:01:12,532 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:01:12,542 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:01:12,562 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 18:01:12,565 [main] INFO  com.inca.Application - Started Application in 7.526 seconds (JVM running for 8.011)
+2019-07-05 18:01:36,248 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-05 18:01:36,249 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-05 18:01:36,260 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2019-07-05 18:02:32,048 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 8580 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:02:32,049 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:02:34,775 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:02:36,997 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:02:37,810 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:02:37,810 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:02:37,823 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:02:38,037 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:02:38,037 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5889 ms
+2019-07-05 18:02:38,602 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:02:38,954 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:02:38,966 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:02:38,983 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 18:02:38,987 [main] INFO  com.inca.Application - Started Application in 7.399 seconds (JVM running for 7.876)
+2019-07-05 18:02:42,470 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-05 18:02:42,471 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-05 18:02:42,478 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2019-07-05 18:03:00,371 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 8500 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:03:00,373 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:03:02,365 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:03:05,732 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:03:06,547 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:03:06,547 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:03:06,560 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:03:06,714 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:03:06,714 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 6215 ms
+2019-07-05 18:03:07,331 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:03:07,657 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:03:07,671 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:03:07,690 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 18:03:07,693 [main] INFO  com.inca.Application - Started Application in 7.781 seconds (JVM running for 8.265)
+2019-07-05 18:03:07,876 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-05 18:03:07,876 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-05 18:03:07,883 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2019-07-05 18:05:31,681 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 9712 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:05:31,683 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:05:34,350 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:05:36,703 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:05:37,522 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:05:37,523 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:05:37,541 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:05:37,744 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:05:37,744 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5974 ms
+2019-07-05 18:05:38,341 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:05:38,669 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:05:38,679 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:05:38,696 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 18:05:38,698 [main] INFO  com.inca.Application - Started Application in 7.486 seconds (JVM running for 7.955)
+2019-07-05 18:05:41,730 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-05 18:05:41,731 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-05 18:05:41,739 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2019-07-05 18:05:51,205 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-07-05 18:07:42,421 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 9464 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:07:42,423 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:07:46,634 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:07:47,596 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:07:48,339 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:07:48,339 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:07:48,350 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:07:48,615 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:07:48,615 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 6108 ms
+2019-07-05 18:07:49,212 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:07:49,515 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:07:49,525 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:07:49,544 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 18:07:49,547 [main] INFO  com.inca.Application - Started Application in 7.581 seconds (JVM running for 8.047)
+2019-07-05 18:07:52,671 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-05 18:07:52,671 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-05 18:07:52,681 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2019-07-05 18:08:00,991 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-07-05 18:08:52,238 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 2548 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:08:52,241 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:08:53,513 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:08:53,525 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:08:53,535 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:08:53,536 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:08:53,545 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:08:53,668 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:08:53,669 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1353 ms
+2019-07-05 18:08:54,204 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:08:54,509 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:08:54,521 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:08:54,543 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 18:08:54,547 [main] INFO  com.inca.Application - Started Application in 2.759 seconds (JVM running for 3.245)
+2019-07-05 18:08:57,423 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-05 18:08:57,426 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-05 18:08:57,434 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2019-07-05 18:09:02,437 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-07-05 18:10:23,963 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 9416 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:10:23,966 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:10:25,288 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:10:25,300 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:10:25,314 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:10:25,314 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:10:25,324 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:10:25,444 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:10:25,444 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1388 ms
+2019-07-05 18:10:25,988 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:10:26,264 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:10:26,275 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:10:26,293 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 18:10:26,296 [main] INFO  com.inca.Application - Started Application in 2.799 seconds (JVM running for 3.268)
+2019-07-05 18:10:31,049 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-05 18:10:31,049 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-05 18:10:31,056 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2019-07-05 18:10:38,795 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-07-05 18:11:58,895 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 4632 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:11:58,898 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:12:00,304 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:12:00,317 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:12:00,326 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:12:00,326 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:12:00,337 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:12:00,469 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:12:00,470 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1476 ms
+2019-07-05 18:12:00,998 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:12:01,275 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:12:01,286 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:12:01,313 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 18:12:01,317 [main] INFO  com.inca.Application - Started Application in 2.881 seconds (JVM running for 3.371)
+2019-07-05 18:12:04,770 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-05 18:12:04,770 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-05 18:12:04,778 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2019-07-05 18:12:04,839 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-07-05 18:12:05,218 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-07-05 18:14:42,751 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 11216 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:14:42,754 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:14:44,143 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:14:44,155 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:14:44,165 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:14:44,165 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:14:44,175 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:14:44,286 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:14:44,287 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1452 ms
+2019-07-05 18:14:44,352 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2019-07-05 18:14:44,370 [main] INFO  o.s.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-07-05 18:36:15,829 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 10300 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:36:15,833 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:36:17,110 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:36:17,123 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:36:17,136 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:36:17,136 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:36:17,146 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:36:17,262 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:36:17,262 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1346 ms
+2019-07-05 18:36:17,360 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2019-07-05 18:36:17,387 [main] INFO  o.s.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-07-05 18:50:12,227 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 6032 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:50:12,231 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:50:13,537 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:50:13,549 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:50:13,563 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:50:13,563 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:50:13,572 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:50:13,673 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:50:13,673 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1361 ms
+2019-07-05 18:50:14,240 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:50:14,538 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:50:14,550 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:50:14,578 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 18:50:14,580 [main] INFO  com.inca.Application - Started Application in 2.831 seconds (JVM running for 3.306)
+2019-07-05 18:50:56,828 [main] INFO  com.inca.Application - Starting Application on jsj102-PC with PID 9284 (D:\workspace\inca.dta\inca.dta\target\classes started by Administrator in D:\workspace\inca.dta\inca.dta)
+2019-07-05 18:50:56,831 [main] INFO  com.inca.Application - The following profiles are active: dev
+2019-07-05 18:50:58,148 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-07-05 18:50:58,160 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:50:58,174 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-07-05 18:50:58,174 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-07-05 18:50:58,184 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:/Program Files/jdk1.8.0_51/bin/../jre/bin/server;D:/Program Files/jdk1.8.0_51/bin/../jre/bin;D:/Program Files/jdk1.8.0_51/bin/../jre/lib/amd64;D:\Program Files\jdk1.8.0_51\bin;D:\Program Files\jdk1.8.0_51\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jre6\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;D:\Program Files\Git\cmd;D:\soft\gradle-5.4.1\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Program Files\sts-bundle\sts-3.7.0.RELEASE;;.]
+2019-07-05 18:50:58,338 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-05 18:50:58,344 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1469 ms
+2019-07-05 18:50:58,901 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-05 18:50:59,182 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-07-05 18:50:59,194 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-05 18:50:59,217 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-07-05 18:50:59,221 [main] INFO  com.inca.Application - Started Application in 2.859 seconds (JVM running for 3.341)
+2019-07-05 18:51:12,697 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-07-05 18:51:12,697 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-07-05 18:51:12,705 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
