@@ -23,7 +23,6 @@
         var password=$("#password").val();
 		//使用base64进行前端密码加密
 		var basepassword=base.encode(password);
-		alert("加密前："+password+"-------"+"加密后："+basepassword);
             $.ajax({
                     type : "POST",
                     url : "/submitlogin",

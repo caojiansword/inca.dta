@@ -385,73 +385,73 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNull() {
-            addCriterion("Name is null");
+        public Criteria andUserNameIsNull() {
+            addCriterion("UserName is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNotNull() {
-            addCriterion("Name is not null");
+        public Criteria andUserNameIsNotNull() {
+            addCriterion("UserName is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNameEqualTo(String value) {
-            addCriterion("Name =", value, "name");
+        public Criteria andUserNameEqualTo(String value) {
+            addCriterion("UserName =", value, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotEqualTo(String value) {
-            addCriterion("Name <>", value, "name");
+        public Criteria andUserNameNotEqualTo(String value) {
+            addCriterion("UserName <>", value, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThan(String value) {
-            addCriterion("Name >", value, "name");
+        public Criteria andUserNameGreaterThan(String value) {
+            addCriterion("UserName >", value, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("Name >=", value, "name");
+        public Criteria andUserNameGreaterThanOrEqualTo(String value) {
+            addCriterion("UserName >=", value, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThan(String value) {
-            addCriterion("Name <", value, "name");
+        public Criteria andUserNameLessThan(String value) {
+            addCriterion("UserName <", value, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("Name <=", value, "name");
+        public Criteria andUserNameLessThanOrEqualTo(String value) {
+            addCriterion("UserName <=", value, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameLike(String value) {
-            addCriterion("Name like", value, "name");
+        public Criteria andUserNameLike(String value) {
+            addCriterion("UserName like", value, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotLike(String value) {
-            addCriterion("Name not like", value, "name");
+        public Criteria andUserNameNotLike(String value) {
+            addCriterion("UserName not like", value, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameIn(List<String> values) {
-            addCriterion("Name in", values, "name");
+        public Criteria andUserNameIn(List<String> values) {
+            addCriterion("UserName in", values, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotIn(List<String> values) {
-            addCriterion("Name not in", values, "name");
+        public Criteria andUserNameNotIn(List<String> values) {
+            addCriterion("UserName not in", values, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("Name between", value1, value2, "name");
+        public Criteria andUserNameBetween(String value1, String value2) {
+            addCriterion("UserName between", value1, value2, "UserName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("Name not between", value1, value2, "name");
+        public Criteria andUserNameNotBetween(String value1, String value2) {
+            addCriterion("UserName not between", value1, value2, "UserName");
             return (Criteria) this;
         }
 
