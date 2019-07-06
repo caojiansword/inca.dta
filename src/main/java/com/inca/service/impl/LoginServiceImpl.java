@@ -25,9 +25,9 @@ public class LoginServiceImpl implements LoginService {
 	public int selectByExample(String username, String password) {
 		   UserExample example=new UserExample();
 		   com.inca.entity.pub.ex.UserExample.Criteria criteria=example.createCriteria();
-		   criteria.andNameEqualTo(username);
+		   criteria.andUserNameEqualTo(username);
 		   criteria.andPasswordEqualTo(password);  
-		  int count=(int) usermapper.countUser(example);
+		  Long count=(Long) usermapper.countUser(example);
 		   if (count==1) {
 			   return 1;
 		     }else{
