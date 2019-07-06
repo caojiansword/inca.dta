@@ -1,7 +1,7 @@
 ﻿document.writeln("");
 document.writeln("    <header class=\'main-header\'>");
 document.writeln("    <a href=\'#\' class=\'logo\'>");
-document.writeln("       <span class=\'logo-lg\'><b>Pala</b>.com</span>");
+document.writeln("       <span class=\'logo-lg\'><b>www.inca</b>.com</span>");
 document.writeln("    </a>");
 document.writeln("    <nav class=\'navbar navbar-static-top\'>");
 document.writeln("      <!-- Sidebar toggle button-->");
@@ -11,7 +11,7 @@ document.writeln("          <!-- User Account: style can be found in dropdown.le
 document.writeln("          <li class=\'dropdown user user-menu\'>");
 document.writeln("            <a href=\'#\' class=\'dropdown-toggle\' data-toggle=\'dropdown\'>");
 document.writeln("             <img src=\'../../img/user2-160x160.jpg\' class=\'user-image\' alt=\'User Image\'>");
-document.writeln("              <span class=\'hidden-xs\'>张三</span>");
+document.writeln("              <span class=\'hidden-xs\'>admin</span>");
 document.writeln("            </a>");
 document.writeln("            <ul class=\'dropdown-menu\'>");
 document.writeln("              <!-- User image -->");
@@ -39,7 +39,7 @@ document.writeln("        <div class=\'pull-left image\'>");
 document.writeln("          <img src=\'../../img/user2-160x160.jpg\' class=\'img-circle\' alt=\'User Image\'>");
 document.writeln("        </div>");
 document.writeln("        <div class=\'pull-left info\'>");
-document.writeln("          <p>张三</p>");
+document.writeln("          <p>Admin</p>");
 document.writeln("          <a href=\'#\'><i class=\'fa fa-circle text-success\'></i>在线</a>");
 document.writeln("        </div>");
 document.writeln("      </div>");
