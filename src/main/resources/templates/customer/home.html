@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN"   xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"></meta>
+  <title>客户管理</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"></meta>
+  <link rel="stylesheet" href="../../css/bootstrap/dist/css/bootstrap.min.css"></link>
+  <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.min.css"></link>
+  <link rel="stylesheet" href="../../css/Ionicons/css/ionicons.min.css"></link>
+  <link rel="stylesheet" href="../../css/datatables.net-bs/css/dataTables.bootstrap.min.css"></link>
+  <link rel="stylesheet" href="../../css/dist/css/AdminLTE.min.css"></link>
+  <link rel="stylesheet" href="../../css/dist/css/skins/_all-skins.min.css"></link>
+  <link rel="stylesheet" type="text/css" href="../../css/fenlei.css"></link>
+  
+  <style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			/*
+			  * 外面盒子样式---自己定义
+			  */
+			
+			.page_div {
+				margin-top: 20px;
+				margin-bottom: 20px;
+				font-size: 15px;
+				font-family: "microsoft yahei";
+				color: #666666;
+				margin-right: 10px;
+				padding-left: 20px;
+				box-sizing: border-box;
+			}
+			/*
+			 * 页数按钮样式
+			 */
+			.page_div a {
+				min-width: 30px;
+				height: 28px;
+				border: 1px solid #dce0e0!important;
+				text-align: center;
+				margin: 0 4px;
+				cursor: pointer;
+				line-height: 28px;
+				color: #666666;
+				font-size: 13px;
+				display: inline-block;
+			}
+			#firstPage,
+			#lastPage {
+				width: 50px;
+				color: #0073A9;
+				border: 1px solid #0073A9!important;
+			}
+			#prePage,
+			#nextPage {
+				width: 70px;
+				color: #0073A9;
+				border: 1px solid #0073A9!important;
+			}
+			.page_div .current {
+				background-color: #0073A9;
+				border-color: #0073A9;
+				color: #FFFFFF;
+			}
+			.totalPages {
+				margin: 0 10px;
+			}
+			.totalPages span,
+			.totalSize span {
+				color: #0073A9;
+				margin: 0 5px;
+			}
+		</style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+<!--主页面左边菜单和上部分横条公共部分-->
+  <script src="../../js/common/left.js"></script>
+ <!--结束-->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+           <div class="box" style="overflow: hidden;">
+            <h3 class="box-title" style="margin-left: 30px;">资源管理</h3>
+            <div class="box-header" > 
+                <button type="button" id="deleteziyuan" class="btn btn-block btn-info" style="width: 50px;display: block;float: right;margin-top: -30px;margin-left: 20px;">删除</button>
+             <button type="button" id="updateziyuan" class="btn btn-block btn-info" style="width: 50px;display: block;float: right;margin-top: -30px;margin-left: 20px;">编辑</button>
+               <button type="button" id="addziyuan" class="btn btn-block btn-info" style="width: 50px;display: block;float: right;margin-top: -30px;margin-left: 20px;">添加</button>
+            </div>
+            <div class="box-body">
+              <table id="project" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>选择</th>
+                  <th>资源标识</th>
+                  <th>分类技能</th>
+                  <th>所属分类</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="resource : ${list}">
+                  <td><input name="box" th:type="checkbox"  th:value="${resource.id}" /></td>
+                  <td name="ziyuanbiaoshi" th:text="${resource.ziyuanbaoshi}"></td>
+                  <td name="fenleijieneng" th:text="${resource.fenleijineng}"></td>
+                  <td name="suoshufenlei" th:text="${resource.suoshufenlei}"></td>
+                </tr>
+                </tbody>
+              </table>
+                    
+		             <div id="page" class="page_div"></div>
+		             <input  th:type="hidden" id="alltiaoshu" th:value="${alltioashu}"/>
+		             <input  th:type="hidden" id="allyeshu" th:value="${allyeshu}"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="control-sidebar-bg"></div>
+</div>
+<script src="../../js/jquery/dist/jquery.min.js"></script>
+<script src="../../js/fastclick/lib/fastclick.js"></script>
+<script type="text/javascript" src="../../js/paging.js"></script>
+<script type="text/javascript">
+   //分页
+   var str=location.href;
+   arr=str.split("=");
+		$("#page").paging({
+			pageNo:arr[1]||1,
+			totalPage: parseInt($("#allyeshu").val()),
+			totalSize: $("#alltiaoshu").val(),
+			callback: function(num) {
+				$("#num").val(num);
+				window.location.href="/ziyuan?pageNum="+num;
+			}
+		})
+</script>
+<!--资源管理 添加按钮-->
+<script type="text/javascript">  
+    $('#addziyuan').click(function(){
+      $("#Maskadd").css("display","block");
+      $("#maskRadd").css("display","block");
+    $(".QuXiaoButton").click(function(){//点击遮罩遮罩隐藏
+      $("#Maskadd").css("display","none");
+    });
+     $(".fa-times").click(function(){//点击遮罩遮罩隐藏
+      $("#Maskadd").css("display","none");
+    });
+    })
+  </script>
+<div id="Maskadd" class="Mask" >
+  <div class="Box">
+    <div class="Name">
+      <div class="fa fa-times"  style="float: right;margin-right: 10px;font-size: 22px;color:#707070;"></div>
+      添加资源
+    </div>
+       <div class="OneHeng"></div>
+      <div class="maskR" id="maskRAdd">
+         <div >
+            <label>资源标识：</label>
+            <input id="biaoshi" type="text"  />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>分类技能：</label>
+            <input id="jineng"  type="text" />
+          </div>
+            <div >
+            <label>所属分类：</label>
+            <input id="fenlei" type="text"  />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+      </div>
+        <div class="TwoHeng"></div>
+            <div>
+           <button id="addsure" class="button">确定</button>
+           <button  class="QuXiaoButton">取消</button>
+            </div>
+  </div>
+ </div>
+<!--资源管理 添加按钮 End-->
+<!--资源管理  删除按钮-->
+<script type="text/javascript">  
+    $('#deleteziyuan').click(function(){
+      $("#MaskDelete").css("display","block");
+      $("#maskRDelete").css("display","block");
+    $(".QuXiaoButton").click(function(){//点击遮罩遮罩隐藏
+      $("#MaskDelete").css("display","none");
+    });
+     $(".fa-times").click(function(){//点击遮罩遮罩隐藏
+      $("#MaskDelete").css("display","none");
+    });
+    })
+  </script>
+<div id="MaskDelete" class="Mask" >
+  <div class="Box">
+    <div class="Name">
+      <div class="fa fa-times"  style="float: right;margin-right: 10px;font-size: 22px;color:#707070;"></div>
+      删除资源
+    </div>
+    <div class="OneHeng"></div>
+        <div class="TwoHeng"> </div>
+         <div>
+            <h2 class="delete">您确定要删除吗？</h2>
+          </div>
+            <div >
+           <button id="deletesure" class="button">
+            确定
+           </button>
+           <button  class="QuXiaoButton">
+            取消
+           </button>
+            </div>
+  </div>
+ </div>
+<!--资源管理 删除按钮-->
+
+<!--资源管理 编辑按钮-->
+<script type="text/javascript">  
+    $('#updateziyuan').click(function(){
+    if($('input[name="box"]').is(':checked')) {//判断是否选中checkbox框
+    var array=new Array();
+   $('input[name="box"]:checked').each(function(){
+       array.push($(this).val());
+   });
+   if(array.length>=2){
+      alert("不能同时编辑多人！！")
+   }else{
+      //显示编辑页面，一次只能一个用户
+      	$('input[name="box"]:checked').each(function(){ 
+      	      //给弹出层赋值
+      	      $("#updateid").val($(this).parent().parent().children().eq(0).children().val());
+              $("#updatebiaoshi").val($(this).parent().parent().children().eq(1).text());
+              $("#updatename").val($(this).parent().parent().children().eq(2).text());
+              $("#updatefenlei").val($(this).parent().parent().children().eq(3).text());
+      	 });
+      $("#MaskEdit").css("display","block");
+      $("#maskREdit").css("display","block");
+   } 
+	}else{alert("请选择！！！！！！");}
+    $(".QuXiaoButton").click(function(){//点击遮罩遮罩隐藏
+      $("#MaskEdit").css("display","none");
+    });
+     $(".fa-times").click(function(){//点击遮罩遮罩隐藏
+      $("#MaskEdit").css("display","none");
+    });
+    })
+</script>
+<div id="MaskEdit" class="Mask" >
+  <div class="Box">
+    <div class="Name">
+      <div class="fa fa-times"  style="float: right;margin-right: 10px;font-size: 22px;color:#707070;"></div>
+      修改资源
+    </div>
+    <div class="OneHeng"></div>
+      <div class="maskR" id="maskRAdd">
+      <input type="hidden" id="updateid"/>
+         <div >
+            <label>资源标识：</label>
+            <input id="updatebiaoshi" type="text"  />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>资源名称：</label>
+            <input id="updatename" type="text" />
+          </div>
+            <div >
+            <label>所属分类：</label>
+            <input  id="updatefenlei" type="text"  />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+      </div>
+        <div class="TwoHeng"> </div>
+            <div >
+           <button id="updatesure" class="button">确定</button>
+           <button  class="QuXiaoButton">取消</button>
+            </div>
+         
+  </div>
+ </div>
+<!--资源管理 编辑按钮 End-->
+</body>
+  <script type="text/javascript">
+    //点击添加按钮确定
+       $("#addsure").click(function(){
+             $.ajax({
+                type : "post",
+                url  :  "/addsure",
+                data : {
+                 ziyuanbaioshi:$("#biaoshi").val(),
+                 fenleijineng:$("#jineng").val(),
+                 suoshufenlei:$("#fenlei").val()
+                },
+                dataType: "json",
+                success: function(data){
+                if(data.result =="1"){  
+                alert("添加成功！");
+                location.reload();
+                }else{
+                alert("添加失败！");}
+               }
+             }); 
+            });
+            
+            //删除
+            $("#deletesure").click(function(){
+               var array=new Array();  
+				$('input[name="box"]:checked').each(function(){  
+    			array.push($(this).val());//向数组中添加元素  
+				});  
+				var str=array.join(',');//将数组元素连接起来以构建一个字符串  
+				$.ajax({
+				type : "post",
+				url  : "/delleteuser",
+				data : {
+				str :str},
+				dataType : "json",
+				success: function(data){
+				if(data.result =="1"){  
+                alert("删除成功！");
+                location.reload();
+                }else{
+                alert("删除失败！");
+                location.reload();
+                    }
+				  }
+				});
+            });
+          //编辑
+          $("#updatesure").click(function(){
+            $.ajax({
+                type : "post",
+                url  :  "/updatesure",
+                data : {
+                 updateid:$("#updateid").val(),
+                 updatebiaoshi:$("#updatebiaoshi").val(),
+                 updatename:$("#updatename").val(),
+                 updatefenlei:$("#updatefenlei").val()
+                },
+                dataType: "json",
+                success: function(data){
+                if(data.result =="1"){  
+                alert("编辑成功！");
+                location.reload();
+                }else{
+                alert("编辑失败！");}
+               }
+             }); 
+          
+          });
+          
+       
+  </script>
+  
+  
+</html>
