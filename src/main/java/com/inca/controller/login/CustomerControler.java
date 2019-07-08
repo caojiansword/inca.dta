@@ -2,10 +2,12 @@ package com.inca.controller.login;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,15 +16,26 @@ import com.inca.service.CustomerService;
 
 
 @Controller
+@RequestMapping(CustomerControler.FUNC_PATH)
 public class CustomerControler {
-	
+    public static final String FUNC_PATH = "/DTA001";
 	@Autowired
-	CustomerService resourceService;
+	CustomerService customerService;
 	
+	@ModelAttribute("funcPath")
+    public String funcPath() {
+        return FUNC_PATH;
+    }
    @RequestMapping("/customer")
     public String main() {
         return "customer/home";
     }
+	@RequestMapping(value="/search")
+	@ResponseBody
+	public  List<Customer> search(){
+		List<Customer> customers = customerService.getCustomerList();
+		return customers;
+	}
 	/*
 	 * 客户管理页面添加用户
 	 */
@@ -31,7 +44,7 @@ public class CustomerControler {
 	public  Map<String, Object> insertuser(Customer customer){
 		   Map<String, Object> map = new HashMap<String, Object>();
 		
-		int h =resourceService.addCustomer(customer);
+		int h =customerService.addCustomer(customer);
 		if (h==1) {
 			map.put("result", "1");
 		}else{
@@ -53,7 +66,7 @@ public class CustomerControler {
 		int h=0;
 		for(String id:array){
 		 Integer _id = Integer.valueOf(id);
-	     h=resourceService.deleteCustomer(_id);
+	     h=customerService.deleteCustomer(_id);
 		}
 		if (h==1) {
 			map.put("result", "1");
@@ -72,7 +85,7 @@ public class CustomerControler {
 	public Map<String, Object> updateuser(Customer customer){
 		  Map<String, Object> map = new HashMap<String, Object>();
 	
-		  int h =resourceService.updateCustomer(customer);
+		  int h =customerService.updateCustomer(customer);
 			if (h==1) {
 				map.put("result", "1");
 			}else{

@@ -1,0 +1,11 @@
+ #editDocWindow td, #editDtlWindow td, #editLotWindow td {
+	padding-top: 8px;
+	padding-bottom:8px;
+} 
+
+#editDocWindow td .mini-textbox, #editDtlWindow td .mini-textbox,
+	#editLotWindow  td .mini-textbox, #editDocWindow td .mini-buttonedit,
+	#editDtlWindow td .mini-buttonedit, #editLotWindow  td .mini-buttonedit,
+	#editLotWindow  td .mini-datepicker {
+	width: 80%
+}

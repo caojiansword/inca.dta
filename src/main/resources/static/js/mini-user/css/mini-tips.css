@@ -1,0 +1,17 @@
+.mini-tips-success {
+    border-color: rgb(70, 136, 71);
+    background:#dff1d9 url(../image/tipsback.png) no-repeat left top / 100% 100% ;
+}
+.sucP{
+	text-align: center;
+    margin-top: 20px;
+    background: #dff1d9 url(../image/tipbg.png) no-repeat 31px top / 34px 34px;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 22px;
+}
+.mini-tips{
+	padding-right:15px;
+	padding-top:10px;
+	padding-left:15px;
+}

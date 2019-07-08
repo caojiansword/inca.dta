@@ -1,0 +1,7 @@
+.mini-messagebox-content-text 
+{
+    white-space:pre-wrap;
+    white-space:break-word;
+    word-break:break-all; /*支持IE，chrome，FF不支持*/
+    word-wrap:break-word;/*支持IE，chrome，FF*/
+}

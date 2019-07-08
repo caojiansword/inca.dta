@@ -60,7 +60,7 @@ document.writeln("          </a>");
 document.writeln("            <ul class=\'treeview-menu\'>");
 document.writeln("            <li><a href=\'../../tables/RoleManagement/roalmanager.html\'><i class=\'fa fa-circle-o\'></i> 角色管理</a></li>");
 document.writeln("            <li><a href=\'../../tables/UserManagement/yonghu.html\'><i class=\'fa fa-circle-o\'></i> 用户管理</a></li>");
-document.writeln("            <li><a href=\'/customer\'><i class=\'fa fa-circle-o\'></i> 客户管理</a></li>");
+document.writeln("            <li><a href=\'/DTA001/customer\'><i class=\'fa fa-circle-o\'></i> 客户管理</a></li>");
 document.writeln("          </ul>");
 document.writeln("        </li>");
 document.writeln("        <li class=\'treeview\'>");

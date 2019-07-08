@@ -1,0 +1,23 @@
+.contTop{
+	padding: 20px 0;
+	border-bottom: 1px solid #E8E8E8;
+}
+a.soldOut,a.dtlRow{
+	color: #64A5FF;
+	cursor: pointer;
+}
+a.soldOut:hover,a.dtlRow:hover{
+	text-decoration:underline;
+}
+.mini-grid-headerCell, .mini-grid-topRightCell{
+	border-right: none;
+	border-bottom: none;
+	background: #f1f1f1;
+}
+.mini-grid-cell, .mini-grid-headerCell, .mini-grid-filterCell, .mini-grid-summaryCell{
+	border-right: none;
+}
+.mini-panel-border {
+    border: none;
+    border-radius: 0;
+}
