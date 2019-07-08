@@ -65,7 +65,7 @@ public class LoginController {
 				System.out.println("md5加密异常：");
 				e.printStackTrace();
 			}
-			int h = loginservice.selectByExample(username, password);
+			int h = loginservice.selectByUserNameAndPassword(username, password);
 			if (h == 1) {
 				map.put("result", "0");
 				System.out.println("登录成功。6666666666。。。。。。。。。。。");

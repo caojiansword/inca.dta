@@ -2,15 +2,11 @@ package com.inca.service.impl;
 
 
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.inca.entity.pub.ex.UserExample;
+import com.inca.entity.pub.User;
 import com.inca.mapper.UserMapper;
 import com.inca.service.LoginService;
 
@@ -22,12 +18,11 @@ public class LoginServiceImpl implements LoginService {
 	private  UserMapper usermapper;
 	
 	@Override
-	public int selectByExample(String username, String password) {
-		   UserExample example=new UserExample();
-		   com.inca.entity.pub.ex.UserExample.Criteria criteria=example.createCriteria();
-		   criteria.andUserNameEqualTo(username);
-		   criteria.andPasswordEqualTo(password);  
-		  Long count=(Long) usermapper.countUser(example);
+	public int selectByUserNameAndPassword(String username, String password) {
+		  User u = new User();
+		  u.setUserName(username);
+		  u.setPassword(password);
+		  Long count=(Long) usermapper.countUser(u);
 		   if (count==1) {
 			   return 1;
 		     }else{
