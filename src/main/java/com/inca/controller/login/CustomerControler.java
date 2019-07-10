@@ -32,7 +32,7 @@ public class CustomerControler {
     }
 	@RequestMapping(value="/search")
 	@ResponseBody
-	public  List<Customer> search(){
+	public  List<Customer> search(String keyword){
 		List<Customer> customers = customerService.getCustomerList();
 		return customers;
 	}

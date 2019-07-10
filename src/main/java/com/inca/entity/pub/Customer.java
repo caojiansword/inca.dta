@@ -1,6 +1,7 @@
 package com.inca.entity.pub;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
@@ -22,6 +23,16 @@ public class Customer extends BaseEntity implements Serializable {
 	private String domain;
 	
 	private Integer type;
+	
+	private Integer status;
+	
+	private String phoneNo;
+	
+	private Date onlineDate;
+	
+	private Date stopDate;
+	
+	private String orgCode;
 
 	public Integer getId() {
 		return id;
@@ -61,6 +72,46 @@ public class Customer extends BaseEntity implements Serializable {
 
 	public void setType(Integer type) {
 		this.type = type;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public Date getOnlineDate() {
+		return onlineDate;
+	}
+
+	public void setOnlineDate(Date onlineDate) {
+		this.onlineDate = onlineDate;
+	}
+
+	public Date getStopDate() {
+		return stopDate;
+	}
+
+	public void setStopDate(Date stopDate) {
+		this.stopDate = stopDate;
+	}
+
+	public String getOrgCode() {
+		return orgCode;
+	}
+
+	public void setOrgCode(String orgCode) {
+		this.orgCode = orgCode;
 	}
 
 	@Override

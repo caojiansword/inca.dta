@@ -33,6 +33,7 @@
 <script src="../../js/jquery/dist/jquery.min.js"></script>
 <script src="../../js/fastclick/lib/fastclick.js"></script>
 <script src="../../js/adminlte.min.js"></script>
+<script th:src="@{/js/page-0.0.1.js}" type="text/javascript" charset="utf-8"></script>
 
 <style>
 * {
@@ -154,12 +155,6 @@
                         <a class="mini-button" plain="true" iconCls="icon-remove" onclick="doRemove()">删除</a>
                         <a class="mini-button" plain="true" iconCls="icon-ok" onclick="doOnline()">上线</a>
                         <a class="mini-button" plain="true" iconCls="icon-no" onclick="doStop()">下线</a>
-                        <a class="mini-button" plain="true" iconCls="icon-download" onclick="doAutoImport()">下载商品</a>
-                        <a class="mini-button" plain="true" iconCls="icon-upload" onclick="doCreateRetail()">创建线上门店</a>
-                        <a class="mini-button" plain="true" iconCls="icon-download" onclick="doRetailDownload()">下载门店</a>
-                        <a class="mini-button" plain="true" iconCls="icon-find" onclick="doUpdateO2oRetail()">拉取线上门店</a>
-                        <a class="mini-button" plain="true" iconCls="icon-ok" onclick="doSetSaleStatus()">设置可售商品</a>
-                        <a class="mini-button" plain="true" iconCls="icon-goto" onclick="doTest()">测试</a>
                     </td>
                 </tr>
             </table>
@@ -171,10 +166,11 @@
             <div type="indexcolumn" headerAlign="center">行号</div>
             <div type="checkcolumn"></div>
             <div field="id" headerAlign="center" align="center" visible="true">客户ID</div>
-            <div field="customName" allowSort="true" headerAlign="center" align="center">客户名称</div>
+            <div field="customerName" allowSort="true" headerAlign="center" align="center">客户名称</div>
             <div field="domain" allowSort="true" headerAlign="center" align="center" >客户域名</div>
+            <div field="orgCode" allowSort="true" headerAlign="center" align="center" >组织机构代码</div>
+            <div field="type" allowSort="true" headerAlign="center" align="center">客户类型</div>
             <div field="status" allowSort="true" headerAlign="center" align="center" renderer="onStatusRenderer">开通状态</div>
-            <div field="o2oType" allowSort="true" headerAlign="center" align="center"renderer="onTypeRenderer">业务类型</div>
             <div field="phoneNo" allowSort="true" headerAlign="center"  align="center">手机号</div>
             <div field="onlineDate" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="start_date">上线日期</div>
             <div field="stopDate" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="end_date">下线日期</div>
@@ -241,9 +237,10 @@
         $('#ruleform').show();
         // 查询
         function search(){
+        	debugger;
             // 客户名称、域名
             var keyword = mini.get("keyword").getValue();
-            grid.load({keyword:keyword,status:status,o2oType:o2oType},function(data){
+            grid.load({keyword:keyword},function(data){
                 setTotalRecord(data.total);
             });
         }
@@ -436,304 +433,8 @@
             });
         }
 
-       	// 测试操作
-        function doTest() {
-        	var rows = grid.getSelecteds();
-            if (rows.length == 1) {
-            	var row = rows[0];
-                if (row) {
-                    var id = row.id;
-                    var o2oType = row.o2oType;
-                    if (id) {
-                        var messageId = mini.loading("测试中，请稍后......");
-                        var url = /*[[@{{funcPath}/doTest(funcPath=${funcPath})}]]*/;
-                        $.ajax({
-                            url:url,
-                            data:{id:id, o2oType:o2oType},
-                            success:function(data){
-                                mini.hideMessageBox(messageId);
-                                if(data.success){
-                                	console.info(data.result);
-                                	mini.alert('测试结束，测试返回信息：' + data.result);
-                                } else {
-                                	mini.alert(data.message);
-                                }
-                            },
-                            error: function (jqXHR, textStatus, errorThrown) {
-                                mini.hideMessageBox(messageId);
-                                mini.alert(jqXHR.responseText);
-                            }
-                        })
-                    }
-                }
-            	
-            } else {
-            	mini.alert("进行开通第三方平台业务测试时只能选中一条数据！")
-                return;
-            }
-        }
-
-        // 下载商品--自动导入
-        function doAutoImport() {
-            var url = /*[[@{{funcPath}/autoImport(funcPath=${funcPath})}]]*/;
-            var rows = grid.getSelecteds();
-            if (rows.length == 1) {
-                var row = rows[0];
-                if (row) {
-                    if (row.status != 1) {
-                        mini.alert("请选择一条上线客户信息！");
-                        return;
-                    }
-                    var messageId = mini.loading("下载中，请稍后......");
-                    var id = row.id;
-                    if (id) {
-                        $.ajax({
-                            url:url,
-                            data:{id:id},
-                            success:function(data){
-                            	mini.hideMessageBox(messageId);
-                                if(data.success){
-                                    mini.alert('操作成功！');
-                                } else {
-                                    mini.alert(data.error);
-                                }
-                            },
-                            error: function (jqXHR, textStatus, errorThrown) {
-                                mini.hideMessageBox(messageId);
-                                mini.alert(jqXHR.responseText);
-                            }
-                        })
-                    }
-                }
-
-            } else {
-                mini.alert("进行客户商品下载只能选中一条上线客户数据！")
-                return;
-            }
-        }
-
-        // 下载门店
-        function doRetailDownload() {
-            var url = /*[[@{{funcPath}/retailLoad(funcPath=${funcPath})}]]*/;
-            var rows = grid.getSelecteds();
-            if (rows.length == 1) {
-                var row = rows[0];
-                if (row) {
-                    if (row.status != 1) {
-                        mini.alert("请选择一条上线客户信息！");
-                        return;
-                    }
-
-                    mini.showMessageBox({
-                        title: "数据更新方式",
-                        iconCls: "icon-help",
-                        buttons: ["ok", "no"],
-                        message: "下载客户门店信息是否覆盖已有的数据 <br>" +
-                        "确定：会覆盖已有的客户门店数据",
-                        callback: function (action) {
-                            // 覆盖已有数据下载
-                            var overrideFlag = false;
-                            if ('ok' == action) {
-                                overrideFlag = true;
-                            }
-
-                            var messageId = mini.loading("下载中，请稍后......");
-                            var id = row.id;
-                            if (id) {
-                                $.ajax({
-                                    url:url,
-                                    data:{id:id, overrideFlag:overrideFlag},
-                                    success:function(data){
-                                        mini.hideMessageBox(messageId);
-                                        if(data.success){
-                                            mini.alert('操作成功！');
-                                        } else {
-                                            mini.alert(data.error);
-                                        }
-                                    },
-                                    error: function (jqXHR, textStatus, errorThrown) {
-                                        mini.hideMessageBox(messageId);
-                                        mini.alert(jqXHR.responseText);
-                                    }
-                                })
-                            }
-                        }
-                    });
-                }
-            } else {
-                mini.alert("进行客户门店下载只能选中一条上线客户数据！")
-                return;
-            }
-        }
-
-        /**
-         * 拉取线上门店信息，并更新本地中心平台门店信息
-         */
-        function doUpdateO2oRetail() {
-            mini.showMessageBox({
-                title: "拉取线上门店信息",
-                iconCls: "icon-help",
-                buttons: ["ok", "no"],
-                message: "拉取线上门店信息用于更新本地中心平台已上线门店的线上信息<br>" +
-                "请问是否拉取更新？",
-                callback: function (action) {
-                    if (action == "no") {
-                        return;
-                    }
-
-                    var url = /*[[@{{funcPath}/updateO2oRetail(funcPath=${funcPath})}]]*/;
-                    var messageId = mini.loading("拉取更新中，请稍后......");
-                    var o2oType = 1;
-                    $.ajax({
-                        url:url,
-                        data:{o2oType: o2oType},
-                        success:function(data){
-                            mini.hideMessageBox(messageId);
-                            if(data.success){
-                                mini.alert('操作成功！');
-                            } else {
-                                mini.alert(data.error);
-                            }
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            mini.hideMessageBox(messageId);
-                            mini.alert(jqXHR.responseText);
-                        }
-                    });
-                }
-            });
-        }
-
-        // 创建线上门店
-        function doCreateRetail() {
-            var url = /*[[@{{funcPath}/genRetail(funcPath=${funcPath})}]]*/;
-            var rows = grid.getSelecteds();
-            if (rows.length == 1) {
-                var row = rows[0];
-                if (row) {
-                    if (row.status != 1) {
-                        mini.alert("请选择一条上线客户信息！");
-                        return;
-                    }
-
-                    var messageId = mini.loading("线上门店生成中......");
-                    var id = row.id;
-                    if (id) {
-                        $.ajax({
-                            url:url,
-                            data:{id:id},
-                            success:function(data){
-                                mini.hideMessageBox(messageId);
-                                if(data.success){
-                                    var warnMsg = data.data;
-                                    if (warnMsg.length > 0) {
-                                        mini.alert('操作完成【' + data.data + '】');
-                                    } else {
-                                        mini.alert('操作完成！');
-                                    }
-                                } else {
-                                    mini.alert(data.error);
-                                }
-                            },
-                            error: function (jqXHR, textStatus, errorThrown) {
-                                mini.hideMessageBox(messageId);
-                                mini.alert(jqXHR.responseText);
-                            }
-                        })
-                    }
-                }
-
-            } else {
-                mini.alert("进行客户商品下载只能选中一条上线客户数据！")
-                return;
-            }
-        }
-
-        /**
-         * 设置可售商品
-         */
-        function doSetSaleStatus() {
-            var rows = grid.getSelecteds();
-            if (rows.length == 1) {
-                var row = rows[0];
-                if (row) {
-                    if (row.status != 1) {
-                        mini.alert("请选择一条上线客户信息！");
-                        return;
-                    }
-                    // 客户ID
-                    var id = row.id;
-
-                    // 选择弹出框
-                    mini.showMessageBox({
-                        title: "设置方式",
-                        iconCls: "icon-help",
-                        buttons: ["商品文件", "所有商品", "cancel"],
-                        message: "请选择设置此客户线上门店可售状态商品",
-                        callback: function (action) {
-                            // 取消
-                            if (action == 'cancel') {
-                                return;
-                            }
-
-                            if (action == '商品文件') {
-                                var url = /*[[@{{funcPath}/importsale(funcPath=${funcPath})}]]*/;
-                                url = url + "?id=" + id;
-                                mini.open(url);
-                            } else if (action == '所有商品') {
-                                var messageId = mini.loading("设置中，请稍后......");
-                                var url = /*[[@{{funcPath}/saleStatus(funcPath=${funcPath})}]]*/;
-                                $.ajax({
-                                    url: url,
-                                    data: {customerId: id},
-                                    success: function (data) {
-                                        mini.hideMessageBox(messageId);
-                                        if (data.success) {
-                                            mini.alert('操作成功！');
-                                        } else {
-                                            mini.alert(data.error);
-                                        }
-                                    },
-                                    error: function (jqXHR, textStatus, errorThrown) {
-                                        mini.hideMessageBox(messageId);
-                                        mini.alert(jqXHR.responseText);
-                                    }
-                                });
-                            }
-                        }
-                    });
-                }
-            } else {
-                mini.alert("请选中一条上线客户数据！")
-                return;
-            }
-        }
-
-
-
-        // 状态渲染
-        var statusModel =/*[[${status}]]*/;
-        var select_status = eval("(" + statusModel + ")");
-        var status_len = select_status.length;
-        function onStatusRenderer(e) {
-            for (var i = 1, l = status_len; i < l; i++) {
-                var g = select_status[i];
-                if (g.key == e.value) return g.value;
-            }
-            return "";
-        }
-
-        // 类型渲染
-        var o2oTypeModel =/*[[${busiType}]]*/;
-        var select_o2oType = eval("(" + o2oTypeModel + ")");
-        var o2oType_len = select_o2oType.length;
-        function onTypeRenderer(e) {
-            for (var i = 1, l = o2oType_len; i < l; i++) {
-                var g = select_o2oType[i];
-                if (g.key == e.value) return g.value;
-            }
-            return "";
-        }
+      
+   
         //]]>
     </script>
 	
