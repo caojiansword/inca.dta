@@ -3,22 +3,22 @@ package com.inca.result;
 public class Result<T> {
 	private Integer code;
 	private String message;
-	private T data;
+	private T result;
 	
 	
 
-	public static <T> Result<T> success(T data){
-		return new Result<T>(data,CodeMsg.SUCCESS);
+	public static <T> Result<T> success(T result){
+		return new Result<T>(result,CodeMsg.SUCCESS);
 	}
 	public static <T> Result<T> error(CodeMsg cm){
 		return new Result<T>(cm);
 	} 
-	private Result(T data,CodeMsg cm) {
+	private Result(T result,CodeMsg cm) {
 		if(cm != null) {
 			this.code=cm.getCode();
 			this.message = cm.getMessage();
 		}
-		this.data = data;
+		this.result = result;
 	}
 	public Result(CodeMsg cm) {
 		if(cm != null) {
@@ -34,9 +34,10 @@ public class Result<T> {
 	public String getMessage() {
 		return message;
 	}
-
-	public T getData() {
-		return data;
+	public T getResult() {
+		return result;
 	}
+
+	
 	
 }
