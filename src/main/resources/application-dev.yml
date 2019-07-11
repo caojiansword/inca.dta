@@ -3,6 +3,8 @@ spring:
     mode: HTML5
     encoding: UTF-8
     content-type: text/html
+    prefix: classpath:/templates/
+    suffix: .html
     # 开发禁用缓存
     cache: false
   datasource:
@@ -13,6 +15,8 @@ spring:
     # driver-class-name: com.mysql.jdbc.Driver
     hikari:
       connection-timeout: 60000 
+
+        
    
    
 mybatis:

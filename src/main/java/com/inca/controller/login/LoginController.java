@@ -31,7 +31,7 @@ public class LoginController {
 	/**
 	 * 登录操作
 	 **/
-	@RequestMapping(value = "/submitlogin", method = RequestMethod.POST)
+	@RequestMapping(value = "submitlogin", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> submitlogin(HttpServletRequest request, String username, String basepassword,
 			String verification, Model model) {
@@ -73,17 +73,24 @@ public class LoginController {
 				map.put("result", "4");
 			}
 		}
+		request.getSession().setAttribute("loginName", username);
 		return map;
 	}
 
 	HttpSession session;// 全局变量
 
 	// 登录
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "login")
 	public String login(HttpServletRequest request, Model model) {
-		model.addAttribute("user", "我是张胜");
-		session = request.getSession();
 		// 当前设置session 存验证码 注意：我们要在服务器数据发送到客户端之前设置session 否则会报错
+		session = request.getSession();
+		return "login/login";
+	}
+	// 登录
+	@RequestMapping(value = "")
+	public String defaultLogin(HttpServletRequest request, Model model) {
+		// 当前设置session 存验证码 注意：我们要在服务器数据发送到客户端之前设置session 否则会报错
+		session = request.getSession();
 		return "login/login";
 	}
 
@@ -108,6 +115,7 @@ public class LoginController {
 			// 存入Session
 			session.setAttribute("_code", captcha.text().toLowerCase());
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.err.println("获取验证码异常：" + e.getMessage());
 		}
 	}
