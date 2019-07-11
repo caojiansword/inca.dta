@@ -3,10 +3,11 @@ package com.inca.service;
 import java.util.List;
 
 import com.inca.entity.pub.Customer;
+import com.inca.entity.pub.view.CustomerView;
 
 public interface CustomerService {
 	//获取客户列表
-	public List<Customer> getCustomerList();
+	public List<CustomerView> getCustomerList();
     //客户管理-添加用户
 	public int addCustomer(Customer cm);
 	

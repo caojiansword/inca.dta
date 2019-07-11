@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.inca.entity.pub.Customer;
+import com.inca.entity.pub.view.CustomerView;
 import com.inca.service.CustomerService;
 
 
@@ -32,8 +33,8 @@ public class CustomerControler {
     }
 	@RequestMapping(value="/search")
 	@ResponseBody
-	public  List<Customer> search(String keyword){
-		List<Customer> customers = customerService.getCustomerList();
+	public  List<CustomerView> search(String keyword){
+		List<CustomerView> customers = customerService.getCustomerList();
 		return customers;
 	}
 	/*

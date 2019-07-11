@@ -33,7 +33,8 @@ public class Customer extends BaseEntity implements Serializable {
 	private Date stopDate;
 	
 	private String orgCode;
-
+	
+	
 	public Integer getId() {
 		return id;
 	}

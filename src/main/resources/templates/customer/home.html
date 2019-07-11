@@ -153,8 +153,8 @@
                         <a class="mini-button" plain="true" iconCls="icon-add" onclick="doAdd()">新增</a>
                         <a class="mini-button" plain="true" iconCls="icon-edit" onclick="doEdit()">编辑</a>
                         <a class="mini-button" plain="true" iconCls="icon-remove" onclick="doRemove()">删除</a>
-                        <a class="mini-button" plain="true" iconCls="icon-ok" onclick="doOnline()">上线</a>
-                        <a class="mini-button" plain="true" iconCls="icon-no" onclick="doStop()">下线</a>
+                        <a class="mini-button" plain="true" iconCls="icon-ok" onclick="doEnable">确定</a>
+                        <a class="mini-button" plain="true" iconCls="icon-no" onclick="doStop()">停用</a>
                     </td>
                 </tr>
             </table>
@@ -169,8 +169,8 @@
             <div field="customerName" allowSort="true" headerAlign="center" align="center">客户名称</div>
             <div field="domain" allowSort="true" headerAlign="center" align="center" >客户域名</div>
             <div field="orgCode" allowSort="true" headerAlign="center" align="center" >组织机构代码</div>
-            <div field="type" allowSort="true" headerAlign="center" align="center">客户类型</div>
-            <div field="status" allowSort="true" headerAlign="center" align="center" renderer="onStatusRenderer">开通状态</div>
+            <div field="typeView" allowSort="true" headerAlign="center" align="center">客户类型</div>
+            <div field="statusView" allowSort="true" headerAlign="center" align="center" renderer="onStatusRenderer">开通状态</div>
             <div field="phoneNo" allowSort="true" headerAlign="center"  align="center">手机号</div>
             <div field="onlineDate" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="start_date">上线日期</div>
             <div field="stopDate" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="end_date">下线日期</div>
@@ -370,8 +370,8 @@
             });
         }
 
-        // 上线操作
-        function doOnline(){
+        // 确定操作
+        function doEnable(){
             var rows = grid.getSelecteds();
             if (rows.length <= 0) {
                 mini.alert("请选择至少一条数据！")
@@ -400,7 +400,7 @@
             });
         }
 
-        // 下线操作
+        // 停用操作
         function doStop(){
             var rows = grid.getSelecteds();
             if (rows.length <= 0) {
