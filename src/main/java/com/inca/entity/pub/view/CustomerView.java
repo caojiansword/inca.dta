@@ -9,6 +9,9 @@ public class CustomerView extends Customer {
 	private static final long serialVersionUID = -6433891937639353205L;
 	private String typeView;
     private String statusView;
+    private String stopDateView;
+    private String onLineDateView;
+    private String createTimeView;
 	public String getTypeView() {
 		return typeView;
 	}
@@ -20,6 +23,24 @@ public class CustomerView extends Customer {
 	}
 	public void setStatusView(String statusView) {
 		this.statusView = statusView;
+	}
+	public String getStopDateView() {
+		return stopDateView;
+	}
+	public void setStopDateView(String stopDateView) {
+		this.stopDateView = stopDateView;
+	}
+	public String getOnLineDateView() {
+		return onLineDateView;
+	}
+	public void setOnLineDateView(String onLineDateView) {
+		this.onLineDateView = onLineDateView;
+	}
+	public String getCreateTimeView() {
+		return createTimeView;
+	}
+	public void setCreateTimeView(String createTimeView) {
+		this.createTimeView = createTimeView;
 	}
     
 }

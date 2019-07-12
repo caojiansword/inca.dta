@@ -2,6 +2,8 @@ package com.inca.service.impl;
 
 
 
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -22,9 +24,27 @@ public class CustomerServiceImpl  implements CustomerService {
     CustomerMapper customerMapper;
 	@Override
 	public List<CustomerView> getCustomerList(){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+
 		List<CustomerView> customerList = customerMapper.getCustomerList();
 		customerList.stream().forEach(c->{c.setTypeView(OptionMap.getValue("customertype", c.getType()));
 										  c.setStatusView(OptionMap.getValue("status", c.getStatus()));
+										  if(c.getOnlineDate()!=null){
+											  c.setOnLineDateView(sdf.format(c.getOnlineDate()));
+										  }else{
+											  c.setOnLineDateView(null);
+										  }
+										  if(c.getStopDate()!=null){
+											  c.setStopDateView(sdf.format(c.getStopDate()));  
+										  }else{
+											  c.setStopDateView(null);  
+										  }
+										  if(c.getCreateTime()!=null){
+											 c.setCreateTimeView(sdf.format(c.getCreateTime())); 
+										  }else{
+											 c.setCreateTimeView(null);
+										  }
+										 
 		});
 		return customerList;
 	}
@@ -53,6 +73,30 @@ public class CustomerServiceImpl  implements CustomerService {
 		int  h=customerMapper.update(customer);
 		return h;
 	}
-
+	@Override
+	public List<CustomerView> getCustomerListByKeyWord(String keyWord) {
+		// TODO Auto-generated method stub
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		List<CustomerView> customerList = customerMapper.getCustomerListByKeyWord(keyWord);
+		customerList.stream().forEach(c->{c.setTypeView(OptionMap.getValue("customertype", c.getType()));
+		  c.setStatusView(OptionMap.getValue("status", c.getStatus()));
+		  if(c.getOnlineDate()!=null){
+			  c.setOnLineDateView(sdf.format(c.getOnlineDate()));
+		  }else{
+			  c.setOnLineDateView(null);
+		  }
+		  if(c.getStopDate()!=null){
+			  c.setStopDateView(sdf.format(c.getStopDate()));  
+		  }else{
+			  c.setStopDateView(null);  
+		  }
+		  if(c.getCreateTime()!=null){
+			 c.setCreateTimeView(sdf.format(c.getCreateTime())); 
+		  }else{
+			 c.setCreateTimeView(null);
+		  }
+});
+		return customerList;
+	}
 
 }

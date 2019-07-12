@@ -3,7 +3,12 @@
 <mapper namespace="com.inca.mapper.CustomerMapper">
   
   <select id="getCustomerList" resultType ="CustomerView">
-    select * from pub_customer
+       select id,customerName,customerCode,domain,type,status,phoneNo,orgCode,onlineDate,stopDate,createTime from pub_customer
   </select>
-
+  <select id="getCustomerListByKeyWord" resultType ="CustomerView" parameterType="string">
+       select id,customerName,customerCode,domain,type,status,phoneNo,orgCode,onlineDate,stopDate,createTime from pub_customer where customerName like CONCAT('%',#{key},'%') or customerCode like CONCAT('%',#{key},'%') 
+  </select>
+  <insert id="insert"  useGeneratedKeys="true" keyProperty="id" parameterType="com.inca.entity.pub.Customer">
+  insert into pub_customer (customerCode,customerName,domain,type,orgCode,status,phoneNo) values (#{customerCode},#{customerName},#{domain},#{type},#{orgCode},#{status},#{phoneNo})
+  </insert>
 </mapper>

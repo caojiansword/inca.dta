@@ -8,6 +8,8 @@ import com.inca.entity.pub.view.CustomerView;
 public interface CustomerService {
 	//获取客户列表
 	public List<CustomerView> getCustomerList();
+	//按照关键字过滤客户列表
+	public List<CustomerView> getCustomerListByKeyWord(String keyWord);
     //客户管理-添加用户
 	public int addCustomer(Customer cm);
 	

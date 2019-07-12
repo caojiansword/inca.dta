@@ -131,14 +131,13 @@
 								<table style="width: 100%; margin-top: 10px;">
 									<tr>
 										<td style="white-space: nowrap;" align="left"><span>关键字：</span>
-											<input id="keyword" emptyText="编码/名称" class="mini-textbox"
+											<input id="keyword" emptyText="客户编码/客户名称" class="mini-textbox"
 											style="width: 200px; margin-left: 10px; margin-right: 30px;" />
 
-											<span>客户编码：</span> <input id="retailCodeQ" emptyText="客户编码"
-											class="mini-textbox"
-											style="width: 200px; margin-right: 30px;" /> <span>客户名称：</span>
-											<input id="retailNameQ" emptyText="客户名称" class="mini-textbox"
-											style="width: 200px; margin-right: 30px;" /> <span
+											 <span>客户类型：</span> <input id="typeQ" 
+											class="mini-combobox" renderer="onTypeRenderer"  th:data="${type}" showNullItem="true"   textField="value" valueField="key"
+											style="width: 200px; margin-right: 30px;" />
+											<span
 											class="mini-button" plain="true" iconCls="icon-search"
 											style="margin-right: 14px;" onclick="search()">查询</span></td>
 									</tr>
@@ -165,20 +164,19 @@
         <div property="columns">
             <div type="indexcolumn" headerAlign="center">行号</div>
             <div type="checkcolumn"></div>
-            <div field="id" headerAlign="center" align="center" visible="true">客户ID</div>
+            <div field="id" headerAlign="center" align="center" visible="false">客户ID</div>
+            <div field="customerCode" allowSort="true" headerAlign="center" align="center">客户编码</div>
             <div field="customerName" allowSort="true" headerAlign="center" align="center">客户名称</div>
             <div field="domain" allowSort="true" headerAlign="center" align="center" >客户域名</div>
             <div field="orgCode" allowSort="true" headerAlign="center" align="center" >组织机构代码</div>
             <div field="typeView" allowSort="true" headerAlign="center" align="center">客户类型</div>
-            <div field="statusView" allowSort="true" headerAlign="center" align="center" renderer="onStatusRenderer">开通状态</div>
+            <div field="statusView" allowSort="true" headerAlign="center" align="center">状态</div>
             <div field="phoneNo" allowSort="true" headerAlign="center"  align="center">手机号</div>
-            <div field="onlineDate" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="start_date">上线日期</div>
-            <div field="stopDate" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="end_date">下线日期</div>
-            <div field="createTime" allowSort="true" headerAlign="center"  align="center" dateFormat="yyyy-MM-dd HH:mm:ss">创建时间</div>
+            <div field="onLineDateView" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="start_date">确定日期</div>
+            <div field="stopDateView" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="end_date">停用日期</div>
+            <div field="createTimeView" allowSort="true" headerAlign="center"  align="center" dateFormat="yyyy-MM-dd HH:mm:ss">创建时间</div>
         </div>
     </div>
-    
-
 						</div>
 					</div>
 				</div>
@@ -189,33 +187,49 @@
 	<div id="editWindow" class="mini-window" title="新增/编辑  客户信息" style="width: 800px;" showModal="true" allowResize="true" allowDrag="true">
         <div id="editForm" class="form">
             <input class="mini-hidden" name="id" />
-            <table style="width: 100%;">
+            <table style="width: 100%;border-collapse:separate; border-spacing:0px 10px; "  >
                 <tr>
+                    <td>客户编码：</td>
+                    <td>
+                        <input id="customerCode" name="customerCode" class="mini-textbox" style="width: 200px;" required="true"/>
+                    </td>
                     <td>客户名称：</td>
                     <td>
-                        <input id="customName" name="customName" class="mini-textbox" style="width: 200px;" required="true"/>
+                        <input id="customerName" name="customerName" class="mini-textbox" style="width: 200px;" required="true"/>
                     </td>
+                   
+                </tr>
+                <tr>
                     <td>客户域名：</td>
                     <td>
                         <input id="domain" name="domain" class="mini-textbox" style="width: 200px;" required="true" />
                     </td>
+                    <td>客户类型：</td>
+                    <td>
+                   <input id="type" name="type" class="mini-combobox" style="width: 200px;"  th:data="${type}" renderer="onTypeRenderer" showNullItem="true" textField="value" valueField="key" required="true" />
+                </td>
                 </tr>
                 <tr>
-                    <td>业务类型：</td>
+                   <td>组织机构代码：</td>
                     <td>
-                        <input id="o2oType" name="o2oType" class="mini-combobox" style="width: 200px;" th:data="${busiType}" textField="value" valueField="key" required="true" />
+                        <input id="orgCode" name="orgCode" class="mini-textbox" style="width: 200px;" required="false" />
                     </td>
-
-                    <td>开通状态：</td>
-                    <td>
-                        <input id="status" name="status" class="mini-combobox" style="width: 200px;" th:data="${status}" textField="value" valueField="key" required="true" readonly = "true"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>手机号：</td>
+                     <td>手机号：</td>
                     <td>
                         <input id="phoneNo" name="phoneNo" class="mini-textbox" style="width: 200px;" required="false" />
                     </td>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                  <td>状态：</td>
+                    <td>
+                        <input id="status" name="status" class="mini-combobox" style="width: 200px;" th:data="${status}" renderer="onStatusRenderer" textField="value" valueField="key" required="true" enabled="false"/>
+                    </td>
+                   <td>创建时间：</td>
+                    <td>
+                       <input id="createTime" name="createTime" class="mini-datepicker" dateFormat="yyyy-MM-dd HH:mm:ss" style="width: 200px;" enabled="false" required="false" />
+                   </td>
                 </tr>
                 <tr>
                     <td style="text-align: center; padding-top: 20px;padding-bottom:10px;" colspan="4">
@@ -235,12 +249,15 @@
         var editWindow = mini.get("editWindow");
         $('#editForm').show();
         $('#ruleform').show();
+        
         // 查询
         function search(){
         	debugger;
             // 客户名称、域名
             var keyword = mini.get("keyword").getValue();
-            grid.load({keyword:keyword},function(data){
+            // 客户类型
+            var type = mini.get("typeQ").getValue();
+            grid.load({keyword:keyword,type:type},function(data){
                 setTotalRecord(data.total);
             });
         }
@@ -255,10 +272,13 @@
             editWindow.show();
             var eidtform = new mini.Form("#editForm");
             eidtform.clear();
+            var createTime = mini.formatDate (new Date(), "yyyy-MM-dd HH:mm:ss");
+            //制单时间缺省当前时间
+            mini.get("createTime").setValue(createTime);
             // 状态默认为0
             mini.get("status").setValue(0);
-            // 开通类型默认为京东到家
-            mini.get("o2oType").setValue(1);
+            // 客户类型 默认为IBS客户
+            mini.get("type").setValue(2);
         }
 
         // 编辑
@@ -310,7 +330,7 @@
                 mini.confirm("确定删除？", "确定？",function (action) {
                     if (action == "ok") {
                         var id = ids.join(',');
-                        var url = /*[[@{{funcPath}/remove(funcPath=${funcPath})}]]*/;
+                        var url = /*[[@{{funcPath}/delleteuser(funcPath=${funcPath})}]]*/;
                         url = url + "?ids=" + id;
                         $.ajax({
                             url: url,
@@ -346,13 +366,12 @@
             }
             
             var messageId = mini.loading("保存中，请稍后......");
-            var json = mini.encode(form.getData());
-            var url = /*[[@{{funcPath}/save(funcPath=${funcPath})}]]*/;
+            var json2 = mini.encode(form.getData());
+            var url = /*[[@{{funcPath}/addsure(funcPath=${funcPath})}]]*/;
             $.ajax({
                 type: "POST",
                 url: url,
-                contentType:'application/json',
-                data: json,
+                data: {json:json2},
                 success: function (res) {
                     mini.hideMessageBox(messageId);
                     if(res.success){
@@ -361,12 +380,12 @@
                         mini.alert('保存成功！');
                     } else {
                         mini.alert(res.error);
-                    }
+                    } 
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
+                 error: function (jqXHR, textStatus, errorThrown) {
                     mini.hideMessageBox(messageId);
                     mini.alert(jqXHR.responseText);
-                }
+                } 
             });
         }
 
@@ -432,9 +451,36 @@
                 }
             });
         }
-
-      
-   
+        //客户类型
+        var typeJson =/*[[${type}]]*/;
+        var type=eval("(" + typeJson + ")");
+        var len=type.length;
+        function onTypeRenderer(e) {
+             for (var i = 0, l = len; i < l; i++) {
+                 var g = type[i];
+                 if (g.key == e.value) return g.value;
+             }
+             return "";
+         }
+        //界面新增 客户类型
+      /*   function onTypeRenderer2(e) {
+            for (var i = 0, l = len; i < l; i++) {
+                var g = type[i];
+                if (g.key == e.value) return g.value;
+            }
+            return "";
+        } */
+      //状态
+        var typeJson1 =/*[[${status}]]*/;
+        var status=eval("(" + typeJson + ")");
+        var len1=status.length;
+        function onStatusRenderer(e) {
+             for (var i = 0, l = len1; i < l; i++) {
+                 var g = status[i];
+                 if (g.key == e.value) return g.value;
+             }
+             return "";
+         } 
         //]]>
     </script>
 	
