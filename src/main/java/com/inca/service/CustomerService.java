@@ -18,4 +18,14 @@ public interface CustomerService {
 	
 	//客户管理-编辑用户
 	public int updateCustomer(Customer c);
+	
+	//根据用户id查询用户信息
+	public CustomerView getCustomerById(Integer id);
+	
+	//客户管理-确定用户
+	public int doEnableCustomer(Customer c);
+	//客户管理-停用用户
+	public int doStopCustomer(Customer c);
+	
+
 }

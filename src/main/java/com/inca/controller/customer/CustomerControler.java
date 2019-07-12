@@ -40,11 +40,11 @@ public class CustomerControler {
     }
 	@ModelAttribute("type")
 	public String getTypes() throws Exception {
-		return optionNewService.getOptionValues("customertype");
+		return OptionMap.getOptions("customertype");
 	}
 	@ModelAttribute("status")
 	public String getStatus() throws Exception {
-		return optionNewService.getOptionValues("status");
+		return OptionMap.getOptions("status");
 	}
    @RequestMapping("/customer")
     public String main() {
@@ -75,11 +75,6 @@ public class CustomerControler {
 	public  Map<String, Object> insertuser(String json){
 		Map<String, Object> map = new HashMap<String, Object>();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-		if(StringUtils.isEmpty(json)){
-			map.put("result", "1");
-			return map;
-		}
-		Customer customer = new Customer();
 		if(json!=null){
 	    JSONObject jsonObject = JSONObject.parseObject(json);
 	    String  customerCode= jsonObject.getString("customerCode");
@@ -89,7 +84,9 @@ public class CustomerControler {
 	    String  orgCode= jsonObject.getString("orgCode");
 	    Integer status= jsonObject.getInteger("status");
 	    String  phoneNo= jsonObject.getString("phoneNo");
+	    Integer id = jsonObject.getInteger("id");
 	    Date createDate = null;
+	    Customer customer = new Customer();
 	    customer.setCustomerCode(customerCode);
 	    customer.setCustomerName(customerName);
 	    customer.setDomain(domain);
@@ -102,17 +99,25 @@ public class CustomerControler {
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
 	    customer.setCreateTime(createDate);*/
 	    customer.setCreateTime(null);
 	    customer.setOnlineDate(null);
 	    customer.setStopDate(null);
-		}  
-		int h =customerService.addCustomer(customer);
-		if (h==1) {
-			map.put("result", "1");
-		}else{
-			map.put("result", "2");
+			if (id != null) {
+				customer.setId(id);
+				int h = customerService.updateCustomer(customer);
+				if (h == 1) {
+					map.put("result", "1");
+				}
+				return map;
+			} else {
+				int h = customerService.addCustomer(customer);
+				if (h == 1) {
+					map.put("result", "1");
+				}
+			}
 		}
 		return map;
 	}
@@ -123,14 +128,13 @@ public class CustomerControler {
 	 */
 	@RequestMapping(value="/delleteuser")
 	@ResponseBody
-	public Map<String, Object> deleteuser(String str){
-		  Map<String, Object> map = new HashMap<String, Object>();
-		String[] array=new String[100];
-		array=str.split(",");
+	public Map<String, Object> deleteuser(Integer[] ids){
+		Map<String, Object> map = new HashMap<String, Object>();
 		int h=0;
-		for(String id:array){
-		 Integer _id = Integer.valueOf(id);
-	     h=customerService.deleteCustomer(_id);
+		if(ids != null && ids.length > 0){
+			for(Integer id:ids){
+			  h=customerService.deleteCustomer(id);
+			}
 		}
 		if (h==1) {
 			map.put("result", "1");
@@ -139,7 +143,12 @@ public class CustomerControler {
 		}
 		return map;
 	}
-	
+	@RequestMapping(value="/findCustomserById")
+	@ResponseBody
+	public  CustomerView findCustomerById(Integer id){
+		CustomerView customers = customerService.getCustomerById(id);
+		return customers;
+	}
 	/*
 	 * updatesure 客户管理编辑
 	 * 
@@ -156,5 +165,50 @@ public class CustomerControler {
 				map.put("result", "2");
 			}
 		  return map;
+	}
+	
+	/*
+	 * doOnline 确定
+	 * 
+	 */
+	@RequestMapping(value = "/doOnline")
+	@ResponseBody
+	public Map<String, Object> doOnline(Integer[] ids) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		int h = 0;
+		if (ids != null && ids.length > 0) {
+			for (Integer id : ids) {
+				CustomerView customer = customerService.getCustomerById(id);
+				h = customerService.doEnableCustomer(customer);
+				if (h == 1) {
+					map.put("result", "1");
+				} else {
+					map.put("result", "2");
+				}
+			}
+		}
+		return map;
+	}
+	/*
+	 * doStop 停用
+	 * 
+	 */
+	@RequestMapping(value = "/doStop")
+	@ResponseBody
+	public Map<String, Object> doStop(Integer[] ids) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		int h = 0;
+		if (ids != null && ids.length > 0) {
+			for (Integer id : ids) {
+				CustomerView customer = customerService.getCustomerById(id);
+				h = customerService.doStopCustomer(customer);
+				if (h == 1) {
+					map.put("result", "1");
+				} else {
+					map.put("result", "2");
+				}
+			}
+		}
+		return map;
 	}
 }

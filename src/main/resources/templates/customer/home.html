@@ -288,18 +288,24 @@
                 var row = rows[0];
                 if (row) {
                     var id = row.id;
+                    var status = row.status;
+                    if (status != 0) {
+                        mini.alert("当前记录非临时状态记录,不允许编辑！");
+                        return;
+                    }
                     if (id) {
                         var editForm = new mini.Form("#editForm");
-                        var url = /*[[@{{funcPath}/edit(funcPath=${funcPath})}]]*/;
+                        var url = /*[[@{{funcPath}/findCustomserById(funcPath=${funcPath})}]]*/;
                         $.ajax({
                             url:url,
                             data:{id:id},
                             success:function(data){
-                                if(data.success){
-                                    var o = mini.decode(data.data);
+                                if(data!=null){
+                                    var o = mini.decode(data);
                                     editForm.setData(o);
                                     editWindow.show();
                                 }
+                                
                             },
                             error: function () {
                                 mini.alert("表单加载错误");
@@ -335,11 +341,12 @@
                         $.ajax({
                             url: url,
                             success: function (data) {
-                                if(data.success){
+                                var result = data["result"];
+                            	 if(result!=null){
                                     mini.alert('删除成功！');
                                     grid.reload();
                                 } else {
-                                	mini.alert(data.error);
+                                	mini.alert('删除失败！');
                                 }
                             }
                         });
@@ -374,12 +381,13 @@
                 data: {json:json2},
                 success: function (res) {
                     mini.hideMessageBox(messageId);
-                    if(res.success){
+                    var result = res["result"];
+                    if(result!=null){
+                    	mini.alert('保存成功！');
                         editWindow.hide();
                         grid.reload();
-                        mini.alert('保存成功！');
                     } else {
-                        mini.alert(res.error);
+                        mini.alert('保存失败！');
                     } 
                 },
                  error: function (jqXHR, textStatus, errorThrown) {
@@ -409,9 +417,10 @@
                 url:url,
                 data:{ids:id},
                 success: function (res) {
-                    if(res.success){
+                	var result = res["result"];
+                    if(result!=null){
                         grid.reload();
-                        mini.alert('操作成功！');
+                        mini.alert('确定成功！');
                     } else {
                         mini.alert(res.error);
                     }
@@ -442,9 +451,10 @@
                 url:url,
                 data:{ids:id},
                 success: function (res) {
-                    if(res.success){
+                	var result = res["result"];
+                    if(result!=null){
                         grid.reload();
-                        mini.alert('操作成功！');
+                        mini.alert('停用成功！');
                     } else {
                         mini.alert(res.error);
                     }

@@ -70,6 +70,10 @@ public class CustomerServiceImpl  implements CustomerService {
 		customer.setDomain(c.getDomain());
 		customer.setUpdateTime(new Date());
 		customer.setCustomerName(c.getCustomerName());
+		customer.setCustomerCode(c.getCustomerCode());
+		customer.setType(c.getType());
+		customer.setOrgCode(c.getOrgCode());
+		customer.setPhoneNo(c.getPhoneNo());
 		int  h=customerMapper.update(customer);
 		return h;
 	}
@@ -97,6 +101,48 @@ public class CustomerServiceImpl  implements CustomerService {
 		  }
 });
 		return customerList;
+	}
+	@Override
+	public CustomerView getCustomerById(Integer id) {
+		// TODO Auto-generated method stub
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		CustomerView customer = customerMapper.getCustomerById(id);
+		if(customer.getOnlineDate()!=null){
+			customer.setOnLineDateView(sdf.format(customer.getOnlineDate()));
+		  }else{
+			  customer.setOnLineDateView(null);
+		  }
+		  if(customer.getStopDate()!=null){
+			  customer.setStopDateView(sdf.format(customer.getStopDate()));  
+		  }else{
+			  customer.setStopDateView(null);  
+		  }
+		  if(customer.getCreateTime()!=null){
+			  customer.setCreateTimeView(sdf.format(customer.getCreateTime())); 
+		  }else{
+			  customer.setCreateTimeView(null);
+		  }
+		return customer;
+	}
+	@Override
+	public int doEnableCustomer(Customer c) {
+		// TODO Auto-generated method stub
+		Customer customer = new Customer();
+		customer.setId(c.getId());
+		customer.setStatus(1);
+		customer.setOnlineDate(new Date());
+		int  h=customerMapper.update(customer);
+		return h;
+	}
+	@Override
+	public int doStopCustomer(Customer c) {
+		// TODO Auto-generated method stub
+		Customer customer = new Customer();
+		customer.setId(c.getId());
+		customer.setStatus(2);
+		customer.setStopDate(new Date());
+		int  h=customerMapper.update(customer);
+		return h;
 	}
 
 }
