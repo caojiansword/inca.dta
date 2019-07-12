@@ -1,4 +1,4 @@
-package com.inca.controller.login;
+package com.inca.controller.customer;
 
 
 import java.text.ParseException;
