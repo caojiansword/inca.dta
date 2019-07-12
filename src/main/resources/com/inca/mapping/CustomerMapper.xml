@@ -15,7 +15,7 @@
   </select>
    <!--新增记录  -->
   <insert id="insert"  useGeneratedKeys="true" keyProperty="id" parameterType="com.inca.entity.pub.Customer">
-  insert into pub_customer (customerCode,customerName,domain,type,orgCode,status,phoneNo) values (#{customerCode},#{customerName},#{domain},#{type},#{orgCode},#{status},#{phoneNo})
+  insert into pub_customer (customerCode,customerName,domain,type,orgCode,status,phoneNo,createTime) values (#{customerCode},#{customerName},#{domain},#{type},#{orgCode},#{status},#{phoneNo},#{createTime})
   </insert>
   <!--删除记录  -->
   <delete id="delete" parameterType="int">
@@ -26,7 +26,7 @@
   update pub_customer set customerCode=#{customerCode},customerName=#{customerName},domain=#{domain},type=#{type},orgCode=#{orgCode},phoneNo=#{phoneNo} where id=#{id}
   </update>
  <!-- 确定停用记录 -->
-  <update id="updateStatus" parameterType="Integer">
+  <update id="updateStatus" parameterType="com.inca.entity.pub.Customer">
   update pub_customer set status=#{status},onlineDate=#{onlineDate},stopDate=#{stopDate} where id=#{id}
   </update> 
 </mapper>

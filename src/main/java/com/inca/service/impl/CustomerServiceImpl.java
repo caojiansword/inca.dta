@@ -131,7 +131,7 @@ public class CustomerServiceImpl  implements CustomerService {
 		customer.setId(c.getId());
 		customer.setStatus(1);
 		customer.setOnlineDate(new Date());
-		int  h=customerMapper.update(customer);
+		int  h=customerMapper.updateStatus(customer);
 		return h;
 	}
 	@Override
@@ -141,7 +141,7 @@ public class CustomerServiceImpl  implements CustomerService {
 		customer.setId(c.getId());
 		customer.setStatus(2);
 		customer.setStopDate(new Date());
-		int  h=customerMapper.update(customer);
+		int  h=customerMapper.updateStatus(customer);
 		return h;
 	}
 

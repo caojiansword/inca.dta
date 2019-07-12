@@ -74,7 +74,6 @@ public class CustomerControler {
 	@ResponseBody
 	public  Map<String, Object> insertuser(String json){
 		Map<String, Object> map = new HashMap<String, Object>();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		if(json!=null){
 	    JSONObject jsonObject = JSONObject.parseObject(json);
 	    String  customerCode= jsonObject.getString("customerCode");
@@ -85,7 +84,6 @@ public class CustomerControler {
 	    Integer status= jsonObject.getInteger("status");
 	    String  phoneNo= jsonObject.getString("phoneNo");
 	    Integer id = jsonObject.getInteger("id");
-	    Date createDate = null;
 	    Customer customer = new Customer();
 	    customer.setCustomerCode(customerCode);
 	    customer.setCustomerName(customerName);
@@ -94,15 +92,7 @@ public class CustomerControler {
 	    customer.setOrgCode(orgCode);
 	    customer.setStatus(status);
 	    customer.setPhoneNo(phoneNo);
-	    /* try {
-			createDate =sdf.parse(sdf.format(new Date()));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		}
-	    customer.setCreateTime(createDate);*/
-	    customer.setCreateTime(null);
+	    customer.setCreateTime(new Date());
 	    customer.setOnlineDate(null);
 	    customer.setStopDate(null);
 			if (id != null) {

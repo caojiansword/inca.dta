@@ -14,5 +14,5 @@ public interface CustomerMapper {
     int delete(Customer c);
     int update(Customer c);
     CustomerView getCustomerById(Integer id);
-    int updateStatus(Integer id);
+    int updateStatus(Customer c);
 }
