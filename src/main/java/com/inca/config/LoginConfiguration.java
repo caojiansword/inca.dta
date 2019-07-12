@@ -29,15 +29,15 @@ public class LoginConfiguration implements WebMvcConfigurer {
         loginRegistry.excludePathPatterns("/incayjc/**");
 
         //过滤静态资源（废弃使用，由addResourceHandlers方法处理）
-//        loginRegistry.excludePathPatterns("/css/**");
-//        loginRegistry.excludePathPatterns("/img/**");
-//        loginRegistry.excludePathPatterns("/js/**");
-//        loginRegistry.excludePathPatterns("/font/**");
-//        loginRegistry.excludePathPatterns("/fonts/**");
-//        loginRegistry.excludePathPatterns("/kindeditor/**");
-//        loginRegistry.excludePathPatterns("/lib/**");
-//        loginRegistry.excludePathPatterns("/error/**");
-//        loginRegistry.excludePathPatterns("/login/**");
+        loginRegistry.excludePathPatterns("/css/**");
+        loginRegistry.excludePathPatterns("/img/**");
+        loginRegistry.excludePathPatterns("/js/**");
+        loginRegistry.excludePathPatterns("/font/**");
+        loginRegistry.excludePathPatterns("/fonts/**");
+        loginRegistry.excludePathPatterns("/kindeditor/**");
+        loginRegistry.excludePathPatterns("/lib/**");
+        loginRegistry.excludePathPatterns("/error/**");
+        loginRegistry.excludePathPatterns("/login/**");
     }
     /**
      * 添加静态资源文件，外部可以直接访问地址
