@@ -11,7 +11,7 @@ public class WebLog extends BaseEntity {
 
 	private static final long serialVersionUID = 855661552801488671L;
 	private Integer id ;
-   // @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date accessTime;//访问时间
 	private Integer webType;//访问类型
 	private String url;//访问地址
