@@ -8,7 +8,6 @@ public class CodeMsg {
 	//调用失败
 	public static CodeMsg ERROR = new CodeMsg(2000,"访问失败");
 	
-	
 	private CodeMsg(Integer code, String message) {
 		this.code = code;
 		this.message = message;
@@ -18,8 +17,6 @@ public class CodeMsg {
 	public Integer getCode() {
 		return code;
 	}
-
-
 	public String getMessage() {
 		return message;
 	}

@@ -4,9 +4,6 @@ public class Result<T> {
 	private Integer code;
 	private String message;
 	private T result;
-	
-	
-
 	public static <T> Result<T> success(T result){
 		return new Result<T>(result,CodeMsg.SUCCESS);
 	}
