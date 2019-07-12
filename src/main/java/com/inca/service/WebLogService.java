@@ -3,6 +3,8 @@ package com.inca.service;
 import java.util.List;
 
 import com.inca.entity.system.log.WebLog;
+import com.inca.entity.system.log.view.WebLogView;
+import com.inca.entity.system.log.vo.WebLogVo;
 
 public interface WebLogService {
 	/**
@@ -10,7 +12,7 @@ public interface WebLogService {
 	 * @param log
 	 * @return
 	 */
-	List<WebLog> getWebLogs(WebLog log);
+	List<WebLogView> getWebLogs(WebLogVo log);
 	/**
 	 * 保存日志
 	 * @param log

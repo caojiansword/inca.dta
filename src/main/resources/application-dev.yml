@@ -8,14 +8,17 @@ spring:
     # 开发禁用缓存
     cache: false
   datasource:
-    url: jdbc:mysql://localhost:3306/dta?characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/dta?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
     # 可省略驱动配置, sprin-boot 会由url检测出驱动类型
     # driver-class-name: com.mysql.jdbc.Driver
     hikari:
       connection-timeout: 60000 
-
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone:
+      GMT+8
         
    
    
@@ -23,8 +26,13 @@ mybatis:
   mapperLocations: classpath:com/inca/mapping/*.xml
   typeAliasesPackage: com.inca.entity
 # spring-boot默认打印输出info级别以上的，可在此处修改输出级别
+  configuration:
+    log-impl:
+      org.apache.ibatis.logging.stdout.StdOutImpl
+      
+      
 logging:
   level:
     root: info
 server:
-  port: 8088
+  port: 80

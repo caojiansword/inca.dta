@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.inca.entity.system.log.WebLog;
+import com.inca.entity.system.log.view.WebLogView;
+import com.inca.entity.system.log.vo.WebLogVo;
 import com.inca.mapper.WebLogMapper;
 import com.inca.service.WebLogService;
 @Service
@@ -18,8 +20,9 @@ public class WebLogServiceImpl implements WebLogService {
 	WebLogMapper mapper;
 
 	@Override
-	public List<WebLog> getWebLogs(WebLog log) {
-		return null;
+	public List<WebLogView> getWebLogs(WebLogVo log) {
+		List<WebLogView> list = this.mapper.getWebLogs(log);
+		return list;
 	}
 	
 	@Override

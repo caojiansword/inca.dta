@@ -3,17 +3,12 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 <mapper namespace="com.inca.mapper.WebLogMapper">  
     <!-- 查询日志记录 -->  
-    <select id="getWebLogs" parameterType="WebLog" resultType="WebLog">  
-        SELECT id,accessTime,ip,webType,url,methodPath,methodName,args,result,msg FROM sys_weblog   
+    <select id="getWebLogs" parameterType="WebLogVo" resultType="WebLogView">  
+        SELECT id,accessTime,ip,webType,url,methodPath,methodName,args,result,msg,createTime FROM sys_weblog   
     <where>
-    <if test="webType != null">
-        webType = #{webType}
-    </if>
+        webType = 1
     <if test="methodName != null">
       and  methodName = #{methodName} 
-    </if>
-     <if test="result != null">
-      and  result = #{result} 
     </if>
     <if test="ip != null">
       and  ip = #{ip} 
