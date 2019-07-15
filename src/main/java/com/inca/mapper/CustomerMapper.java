@@ -15,4 +15,5 @@ public interface CustomerMapper {
     int update(Customer c);
     CustomerView getCustomerById(Integer id);
     int updateStatus(Customer c);
+    List<CustomerView> getCustomerListByCode(String code);
 }

@@ -137,6 +137,10 @@
 											 <span>客户类型：</span> <input id="typeQ" 
 											class="mini-combobox" renderer="onTypeRenderer"  th:data="${type}" showNullItem="true"   textField="value" valueField="key"
 											style="width: 200px; margin-right: 30px;" />
+											 <span>状态：</span> <input id="statusQ" 
+											class="mini-combobox" renderer="onStatusRenderer"  th:data="${status}" showNullItem="true"   textField="value" valueField="key"
+											style="width: 200px; margin-right: 30px;" />
+											
 											<span
 											class="mini-button" plain="true" iconCls="icon-search"
 											style="margin-right: 14px;" onclick="search()">查询</span></td>
@@ -224,7 +228,7 @@
                 <tr>
                   <td>状态：</td>
                     <td>
-                        <input id="status" name="status" class="mini-combobox" style="width: 200px;" th:data="${status}" renderer="onStatusRenderer" textField="value" valueField="key" required="true" enabled="false"/>
+                        <input id="status" name="status" class="mini-combobox" style="width: 200px;" th:data="${status}" renderer="onStatusRenderer" textField="value" valueField="key"  enabled="false"/>
                     </td>
                    <td>创建时间：</td>
                     <td>
@@ -257,7 +261,9 @@
             var keyword = mini.get("keyword").getValue();
             // 客户类型
             var type = mini.get("typeQ").getValue();
-            grid.load({keyword:keyword,type:type},function(data){
+            //状态
+            var status = mini.get("statusQ").getValue();
+            grid.load({keyword:keyword,type:type,status:status},function(data){
                 setTotalRecord(data.total);
             });
         }
@@ -342,11 +348,12 @@
                             url: url,
                             success: function (data) {
                                 var result = data["result"];
-                            	 if(result!=null){
+                                var msg = data["msg"];
+                            	 if(result!=null&&result){
                                     mini.alert('删除成功！');
                                     grid.reload();
                                 } else {
-                                	mini.alert('删除失败！');
+                                	mini.alert(msg);
                                 }
                             }
                         });
@@ -381,13 +388,14 @@
                 data: {json:json2},
                 success: function (res) {
                     mini.hideMessageBox(messageId);
-                    var result = res["result"];
-                    if(result!=null){
-                    	mini.alert('保存成功！');
+                    var result = res["success"];
+                    var msg = res["msg"];
+                    if(result!=null&&result){
+                    	mini.alert(msg);
                         editWindow.hide();
                         grid.reload();
-                    } else {
-                        mini.alert('保存失败！');
+                    }else {
+                        mini.alert(msg);
                     } 
                 },
                  error: function (jqXHR, textStatus, errorThrown) {
@@ -417,12 +425,13 @@
                 url:url,
                 data:{ids:id},
                 success: function (res) {
-                	var result = res["result"];
-                    if(result!=null){
+                	 var result = res["success"];
+                     var msg = res["msg"];
+                    if(result!=null&&result){
                         grid.reload();
                         mini.alert('确定成功！');
                     } else {
-                        mini.alert(res.error);
+                        mini.alert(msg);
                     }
                 }
             });
@@ -451,12 +460,13 @@
                 url:url,
                 data:{ids:id},
                 success: function (res) {
-                	var result = res["result"];
-                    if(result!=null){
+                	var result = res["success"];
+                    var msg = res["msg"];
+                    if(result!=null&&result){
                         grid.reload();
                         mini.alert('停用成功！');
                     } else {
-                        mini.alert(res.error);
+                        mini.alert(msg);
                     }
                 }
             });
@@ -472,14 +482,6 @@
              }
              return "";
          }
-        //界面新增 客户类型
-      /*   function onTypeRenderer2(e) {
-            for (var i = 0, l = len; i < l; i++) {
-                var g = type[i];
-                if (g.key == e.value) return g.value;
-            }
-            return "";
-        } */
       //状态
         var typeJson1 =/*[[${status}]]*/;
         var status=eval("(" + typeJson + ")");

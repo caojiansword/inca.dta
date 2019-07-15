@@ -9,9 +9,13 @@
   <select id="getCustomerListByKeyWord" resultType ="CustomerView" parameterType="string">
        select id,customerName,customerCode,domain,type,status,phoneNo,orgCode,onlineDate,stopDate,createTime from pub_customer where customerName like CONCAT('%',#{key},'%') or customerCode like CONCAT('%',#{key},'%') 
   </select>
-  <!--根据用户id查询记录  -->
+  <!--根据客户id查询记录  -->
   <select id="getCustomerById" resultType ="CustomerView">
        select id,customerName,customerCode,domain,type,status,phoneNo,orgCode,onlineDate,stopDate,createTime from pub_customer where id=#{id} 
+  </select>
+   <!--根据客户编码查询记录  -->
+  <select id="getCustomerListByCode" resultType ="CustomerView" parameterType="string">
+       select id,customerName,customerCode,domain,type from pub_customer where customerCode=#{customerCode} 
   </select>
    <!--新增记录  -->
   <insert id="insert"  useGeneratedKeys="true" keyProperty="id" parameterType="com.inca.entity.pub.Customer">

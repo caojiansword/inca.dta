@@ -2,7 +2,6 @@ package com.inca.service.impl;
 
 
 
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -51,6 +50,10 @@ public class CustomerServiceImpl  implements CustomerService {
     //新增客户
 	@Override
 	public int addCustomer(Customer c) {
+		List<CustomerView> customsers = customerMapper.getCustomerListByCode(c.getCustomerCode());
+		if(customsers!=null&&customsers.size()>0){
+			throw new RuntimeException("该客户编码已存在，请检查！");
+		}
 		int h=customerMapper.insert(c);
 		return h;
 	}
@@ -65,6 +68,10 @@ public class CustomerServiceImpl  implements CustomerService {
 	//资源管理-编辑客户
 	@Override
 	public int updateCustomer(Customer c) {
+		List<CustomerView> customsers = customerMapper.getCustomerListByCode(c.getCustomerCode());
+		if(customsers!=null&&customsers.size()>0){
+			throw new RuntimeException("该客户编码已存在，请检查！");
+		}
 		Customer customer = new Customer();
 		customer.setId(c.getId());
 		customer.setDomain(c.getDomain());
@@ -99,7 +106,7 @@ public class CustomerServiceImpl  implements CustomerService {
 		  }else{
 			 c.setCreateTimeView(null);
 		  }
-});
+    });
 		return customerList;
 	}
 	@Override
@@ -139,6 +146,7 @@ public class CustomerServiceImpl  implements CustomerService {
 		// TODO Auto-generated method stub
 		Customer customer = new Customer();
 		customer.setId(c.getId());
+		customer.setOnlineDate(c.getOnlineDate());
 		customer.setStatus(2);
 		customer.setStopDate(new Date());
 		int  h=customerMapper.updateStatus(customer);

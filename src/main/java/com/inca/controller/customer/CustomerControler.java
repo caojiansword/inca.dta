@@ -1,8 +1,6 @@
 package com.inca.controller.customer;
 
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -52,7 +50,7 @@ public class CustomerControler {
     }
 	@RequestMapping(value="/search")
 	@ResponseBody
-	public  List<CustomerView> search(String keyword,String type){
+	public  List<CustomerView> search(String keyword,String type,String status){
 		List<CustomerView> customers = customerService.getCustomerList();
 		if(!StringUtils.isEmpty(keyword)){
 			//编码 名称精确匹配
@@ -65,6 +63,11 @@ public class CustomerControler {
 			Integer typeInt = Integer.valueOf(type);
 			customers=customers.stream().filter(p->p.getType().equals(typeInt)).collect(Collectors.toList());
 		}
+		//状态
+		if(!StringUtils.isEmpty(status)){
+			Integer statusInt = Integer.valueOf(status);
+			customers=customers.stream().filter(p->p.getStatus().equals(statusInt)).collect(Collectors.toList());
+		}
 		return customers;
 	}
 	/*
@@ -74,40 +77,46 @@ public class CustomerControler {
 	@ResponseBody
 	public  Map<String, Object> insertuser(String json){
 		Map<String, Object> map = new HashMap<String, Object>();
-		if(json!=null){
-	    JSONObject jsonObject = JSONObject.parseObject(json);
-	    String  customerCode= jsonObject.getString("customerCode");
-	    String  customerName= jsonObject.getString("customerName");
-	    String  domain= jsonObject.getString("domain");
-	    Integer type= jsonObject.getInteger("type");
-	    String  orgCode= jsonObject.getString("orgCode");
-	    Integer status= jsonObject.getInteger("status");
-	    String  phoneNo= jsonObject.getString("phoneNo");
-	    Integer id = jsonObject.getInteger("id");
-	    Customer customer = new Customer();
-	    customer.setCustomerCode(customerCode);
-	    customer.setCustomerName(customerName);
-	    customer.setDomain(domain);
-	    customer.setType(type);
-	    customer.setOrgCode(orgCode);
-	    customer.setStatus(status);
-	    customer.setPhoneNo(phoneNo);
-	    customer.setCreateTime(new Date());
-	    customer.setOnlineDate(null);
-	    customer.setStopDate(null);
-			if (id != null) {
-				customer.setId(id);
-				int h = customerService.updateCustomer(customer);
-				if (h == 1) {
-					map.put("result", "1");
-				}
-				return map;
-			} else {
-				int h = customerService.addCustomer(customer);
-				if (h == 1) {
-					map.put("result", "1");
+		try {
+			if (json != null) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+				String customerCode = jsonObject.getString("customerCode");
+				String customerName = jsonObject.getString("customerName");
+				String domain = jsonObject.getString("domain");
+				Integer type = jsonObject.getInteger("type");
+				String orgCode = jsonObject.getString("orgCode");
+				Integer status = jsonObject.getInteger("status");
+				String phoneNo = jsonObject.getString("phoneNo");
+				Integer id = jsonObject.getInteger("id");
+				Customer customer = new Customer();
+				customer.setCustomerCode(customerCode);
+				customer.setCustomerName(customerName);
+				customer.setDomain(domain);
+				customer.setType(type);
+				customer.setOrgCode(orgCode);
+				customer.setStatus(status);
+				customer.setPhoneNo(phoneNo);
+				customer.setCreateTime(new Date());
+				customer.setOnlineDate(null);
+				customer.setStopDate(null);
+				//根据客户id判断是新增 还是修改
+				if (id != null) {
+					customer.setId(id);
+					int h = customerService.updateCustomer(customer);
+					map.put("success", h > 0 ? true : false);
+					map.put("msg", h > 0 ? "修改成功" : "修改失败");
+					return map;
+				} else {
+					int h = customerService.addCustomer(customer);
+					map.put("success", h > 0 ? true : false);
+					map.put("msg", h > 0 ? "保存成功" : "保存失败");
 				}
 			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			map.put("success", false);
+			map.put("msg", "保存失败:" + e.getMessage());
 		}
 		return map;
 	}
@@ -120,16 +129,20 @@ public class CustomerControler {
 	@ResponseBody
 	public Map<String, Object> deleteuser(Integer[] ids){
 		Map<String, Object> map = new HashMap<String, Object>();
-		int h=0;
-		if(ids != null && ids.length > 0){
-			for(Integer id:ids){
-			  h=customerService.deleteCustomer(id);
+		try {
+			int h = 0;
+			if (ids != null && ids.length > 0) {
+				for (Integer id : ids) {
+					h = customerService.deleteCustomer(id);
+				}
 			}
-		}
-		if (h==1) {
-			map.put("result", "1");
-		}else{
-			map.put("result", "2");
+			map.put("success", h > 0 ? true : false);
+			map.put("msg", h > 0 ? "删除成功" : "删除失败");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			map.put("success", false);
+			map.put("msg", "删除失败:" + e.getMessage());
 		}
 		return map;
 	}
@@ -147,7 +160,7 @@ public class CustomerControler {
 	@ResponseBody
 	public Map<String, Object> updateuser(Customer customer){
 		  Map<String, Object> map = new HashMap<String, Object>();
-	
+
 		  int h =customerService.updateCustomer(customer);
 			if (h==1) {
 				map.put("result", "1");
@@ -165,17 +178,21 @@ public class CustomerControler {
 	@ResponseBody
 	public Map<String, Object> doOnline(Integer[] ids) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		int h = 0;
-		if (ids != null && ids.length > 0) {
-			for (Integer id : ids) {
-				CustomerView customer = customerService.getCustomerById(id);
-				h = customerService.doEnableCustomer(customer);
-				if (h == 1) {
-					map.put("result", "1");
-				} else {
-					map.put("result", "2");
+		try {
+			int h = 0;
+			if (ids != null && ids.length > 0) {
+				for (Integer id : ids) {
+					CustomerView customer = customerService.getCustomerById(id);
+					h = customerService.doEnableCustomer(customer);
+					map.put("success", h > 0 ? true : false);
+					map.put("msg", h > 0 ? "确定成功" : "确定失败");
 				}
 			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			map.put("success", false);
+			map.put("msg", "确定失败:" + e.getMessage());
 		}
 		return map;
 	}
@@ -187,17 +204,21 @@ public class CustomerControler {
 	@ResponseBody
 	public Map<String, Object> doStop(Integer[] ids) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		int h = 0;
-		if (ids != null && ids.length > 0) {
-			for (Integer id : ids) {
-				CustomerView customer = customerService.getCustomerById(id);
-				h = customerService.doStopCustomer(customer);
-				if (h == 1) {
-					map.put("result", "1");
-				} else {
-					map.put("result", "2");
+		try {
+			int h = 0;
+			if (ids != null && ids.length > 0) {
+				for (Integer id : ids) {
+					CustomerView customer = customerService.getCustomerById(id);
+					h = customerService.doStopCustomer(customer);
+					map.put("success", h > 0 ? true : false);
+					map.put("msg", h > 0 ? "停用成功" : "停用失败");
 				}
 			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			map.put("success", false);
+			map.put("msg", "停用失败:" + e.getMessage());
 		}
 		return map;
 	}
