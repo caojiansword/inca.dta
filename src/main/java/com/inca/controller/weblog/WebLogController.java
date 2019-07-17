@@ -1,7 +1,5 @@
 package com.inca.controller.weblog;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.inca.entity.system.log.view.WebLogView;
 import com.inca.entity.system.log.vo.WebLogVo;
+import com.inca.result.PageResult;
 import com.inca.service.WebLogService;
 
 @Controller
@@ -33,8 +32,8 @@ public class WebLogController {
 	}
 	@RequestMapping("/loginsearch")
 	@ResponseBody
-	public List<WebLogView> loginSearch(WebLogVo log){
-		List<WebLogView> logs = logService.getWebLogs(log);
+	public PageResult<WebLogView> loginSearch(WebLogVo log){
+		PageResult<WebLogView> logs = logService.getWebLogs(log);
 		return logs;
 	}
 }

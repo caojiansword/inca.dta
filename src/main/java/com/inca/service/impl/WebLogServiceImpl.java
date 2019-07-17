@@ -8,10 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.inca.entity.system.log.WebLog;
 import com.inca.entity.system.log.view.WebLogView;
 import com.inca.entity.system.log.vo.WebLogVo;
 import com.inca.mapper.WebLogMapper;
+import com.inca.result.PageResult;
 import com.inca.service.WebLogService;
 @Service
 public class WebLogServiceImpl implements WebLogService {
@@ -20,11 +23,16 @@ public class WebLogServiceImpl implements WebLogService {
 	WebLogMapper mapper;
 
 	@Override
-	public List<WebLogView> getWebLogs(WebLogVo log) {
+	public PageResult<WebLogView> getWebLogs(WebLogVo log) {
+		PageHelper.startPage(log.getPageIndex(), log.getPageSize());
 		List<WebLogView> list = this.mapper.getWebLogs(log);
-		return list;
+		PageInfo<WebLogView> pageInfo = new PageInfo<>(list,log.getPageSize());
+		PageResult<WebLogView> pageResult = new  PageResult<>();
+		pageResult.setData(pageInfo.getList());
+		pageResult.setTotal(pageInfo.getTotal());
+		return pageResult;
 	}
-	
+ 	
 	@Override
 	@Transactional
 	public void save(WebLog log) {

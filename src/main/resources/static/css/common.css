@@ -1,5 +1,5 @@
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td{margin:0;padding:0;}
-body{font-family:"微软雅黑";min-height:100%;color:#333;-webkit-tap-highlight-color:rgba(0,0,0,0);overflow-x: hidden;}
+body{font-family:"寰蒋闆呴粦";min-height:100%;color:#333;-webkit-tap-highlight-color:rgba(0,0,0,0);overflow-x: hidden;}
 html{font-size:14px;}
 img{border:none;display:block;}
 input,a,select{outline:none;}
@@ -168,7 +168,7 @@ select{
 }
 .fix:after{display:table; content:''; clear:both;}
 
-/*左侧导航--------------------*/
+/*宸︿晶瀵艰埅--------------------*/
 nav{
 	position: fixed;
 	width: 236px;
@@ -398,7 +398,7 @@ html body .mini-grid-row-selected, body .mini-grid-row-selected .mini-grid-froze
     padding: 10px 8px 10px 28px;
 }
 
-/*分页-------------*/
+/*鍒嗛〉-------------*/
 #pagecount{
 	margin: 12px 0 0;
 	clear: both;
@@ -487,7 +487,7 @@ html body .mini-grid-row-selected, body .mini-grid-row-selected .mini-grid-froze
 #pagecount .ltotalPage{
 	  font-size: 14px;
     line-height: 30px;
-    margin-left: 20px;
+    margin-left: 80px;
     color: #999;
 }
 
@@ -577,7 +577,7 @@ span.com_border{
 .mini-calendar-timespinner .mini-buttonedit-border{
 	padding-left: 2px;
 }
-/*弹框-----------------*/
+/*寮规-----------------*/
 .dialog{
 	position: fixed;
 	top: 0;
@@ -726,7 +726,7 @@ span.com_border{
 	cursor: pointer;
 }
 
-/*单个搜索框----------*/
+/*鍗曚釜鎼滅储妗�----------*/
 .common_searchTop{
 	height: 34px;
     padding: 18px 0;
@@ -764,7 +764,7 @@ span.com_border{
 	border-bottom-left-radius:4px;
 }
 
-/*tab切换---------*/
+/*tab鍒囨崲---------*/
 .common_headDiv .headUl{
 	width: 100%;
 	height: 50px;

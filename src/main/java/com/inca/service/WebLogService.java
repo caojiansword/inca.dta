@@ -5,6 +5,7 @@ import java.util.List;
 import com.inca.entity.system.log.WebLog;
 import com.inca.entity.system.log.view.WebLogView;
 import com.inca.entity.system.log.vo.WebLogVo;
+import com.inca.result.PageResult;
 
 public interface WebLogService {
 	/**
@@ -12,7 +13,7 @@ public interface WebLogService {
 	 * @param log
 	 * @return
 	 */
-	List<WebLogView> getWebLogs(WebLogVo log);
+	PageResult<WebLogView> getWebLogs(WebLogVo log);
 	/**
 	 * 保存日志
 	 * @param log
