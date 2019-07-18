@@ -21,19 +21,29 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/miniui.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/icons.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/skin.css}" />
-
+<script th:src="@{/lib/jquery-2.1.4/jquery.min.js}"></script>
+<script th:src="@{/lib/bootstrap-3.3.5/js/bootstrap.js}"></script>
+<script th:src="@{/lib/bootstrap-3.3.5/js/bootstrap.min.js}"></script>
+<link
+	th:href="@{/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css}"
+	rel="stylesheet" />
+	<script
+	th:src="@{/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js}"></script>
+<script
+	th:src="@{/lib/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js}"></script>
 <link rel="stylesheet" type="text/css"
 	th:href="@{/css/font-awesome.min.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/setAd.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/minicommon.css}" />
 <script th:src="@{/js/jquery-1.11.1.js}" type="text/javascript"></script>
 <script th:src="@{/js/miniui.js}" type="text/javascript" charset="utf-8"></script>
-<script src="../../js/jquery/dist/jquery.min.js"></script>
-<script src="../../js/fastclick/lib/fastclick.js"></script>
-<script type="text/javascript" src="../../js/paging.js"></script>
-<script src="../../js/jquery/dist/jquery.min.js"></script>
-<script src="../../js/fastclick/lib/fastclick.js"></script>
-<script src="../../js/adminlte.min.js"></script>
+<script th:src="@{../../js/jquery/dist/jquery.min.js}"></script>
+<script th:src="@{../../js/jquery-1.11.1.js}"></script>
+<script th:src="@{../../js/fastclick/lib/fastclick.js}"></script>
+<script type="text/javascript" th:src="@{../../js/paging.js}"></script>
+<script th:src="@{../../js/jquery/dist/jquery.min.js}"></script>
+<script th:src="@{../../js/fastclick/lib/fastclick.js}"></script>
+<script th:src="@{../../js/adminlte.min.js}"></script>
 <script th:src="@{/js/page-0.0.1.js}" type="text/javascript" charset="utf-8"></script>
 
 <style>
@@ -126,18 +136,18 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="box" style="overflow: hidden;">
-							<h3 class="box-title" style="margin-left: 30px;">登录监控理</h3>
+							<h3 class="box-title" style="margin-left: 30px;">登录监控</h3>
 							<div class="contTop tc bgf">
 
 								<table style="width: 100%; margin-top: 10px;">
 									<tr>
-										<td style="white-space: nowrap;" align="left"><span>关键字：</span>
+										<td style="white-space: nowrap;" align="left"><span >&nbsp;关键字：</span>
 											<input id="keyword" emptyText="ip/方法名/用户名" class="mini-textbox"
-											style="width: 200px; margin-left: 10px; margin-right: 30px;" />
-
-											 <span>结果：</span> <input id="typeQ" 
-											class="mini-combobox" renderer="onTypeRenderer"  th:data="${webType}" showNullItem="true"   textField="value" valueField="webType"
-											style="width: 200px; margin-right: 30px;" />
+											style="width: 200px; margin-left: 0px; margin-right: 20px;" />
+											<span>访问时间从</span>
+											<input th:type="text" th:id="accessTimeFrom" class="mini-textbox">
+											<span>到</span>
+											<input th:type="text" th:id="accessTimeTo" class="mini-textbox">
 											<span
 											class="mini-button" plain="true" iconCls="icon-search"
 											style="margin-right: 14px;" onclick="search()">查询</span></td>
@@ -185,11 +195,9 @@
         // 查询
         function search(){
         	debugger;
-            // 客户名称、域名
+            // ip/方法名/用户名
             var keyword = mini.get("keyword").getValue();
-            // 客户类型
-            var type = mini.get("typeQ").getValue();
-            grid.load({keyword:keyword,type:type},function(data){
+            grid.load({keyword:keyword},function(data){
                 setTotalRecord(data.total);
             });
         }
@@ -198,7 +206,18 @@
         function getMiniGrid(){
             return grid;
         }
-
+        $("#accessTimeFrom").datetimepicker({
+        	format: 'yyyy-mm-dd hh:ii:ss',
+        	autoclose: true,
+        	language: "zh-CN",
+        	todayBtn:true
+        });
+        $("#accessTimeTo").datetimepicker({
+        	format: 'yyyy-mm-dd hh:ii:ss',
+        	autoclose: true,
+        	language: "zh-CN",
+        	todayBtn:true
+        });	
        
         //]]>
     </script>

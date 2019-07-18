@@ -13,6 +13,7 @@ public class WebLogVo extends BaseQuery {
 	
 	String methodName;
 	String ip;
+	Integer webType;
 	
 	public String getMethodName() {
 		return methodName;
@@ -25,6 +26,12 @@ public class WebLogVo extends BaseQuery {
 	}
 	public void setIp(String ip) {
 		this.ip = ip;
+	}
+	public Integer getWebType() {
+		return webType;
+	}
+	public void setWebType(Integer webType) {
+		this.webType = webType;
 	}
 	
 	

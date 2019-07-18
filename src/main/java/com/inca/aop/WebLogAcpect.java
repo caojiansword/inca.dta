@@ -116,7 +116,7 @@ public class WebLogAcpect {
     	    	     webLog.setUrl(URL);
     	    	     webLog.setMethodPath(methodPath);
     	    	     webLog.setMethodName(methodName);
-    	    	     webLog.setArgs(args.toString());
+    	    	     webLog.setArgs(webType==1?args[1].toString():args.toString());
     	    	     webLog.setResult(isSuccess);
     	    	     webLog.setMsg(msg);
         	         logService.save(webLog);

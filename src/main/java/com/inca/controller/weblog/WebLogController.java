@@ -33,6 +33,14 @@ public class WebLogController {
 	@RequestMapping("/loginsearch")
 	@ResponseBody
 	public PageResult<WebLogView> loginSearch(WebLogVo log){
+		log.setWebType(1);//登录类型
+		PageResult<WebLogView> logs = logService.getWebLogs(log);
+		return logs;
+	}
+	@RequestMapping("/accesssearch")
+	@ResponseBody
+	public PageResult<WebLogView> accesssearch(WebLogVo log){
+		log.setWebType(2);//接口访问类型
 		PageResult<WebLogView> logs = logService.getWebLogs(log);
 		return logs;
 	}

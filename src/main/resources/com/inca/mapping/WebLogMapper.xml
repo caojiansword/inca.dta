@@ -6,12 +6,11 @@
     <select id="getWebLogs" parameterType="WebLogVo" resultType="WebLogView">  
         SELECT id,accessTime,ip,webType,url,methodPath,methodName,args,result,msg,createTime FROM sys_weblog   
     <where>
-        webType = 1
-    <if test="methodName != null">
-      and  methodName = #{methodName} 
+    <if test="webType != null">
+       webType = #{webType}
     </if>
-    <if test="ip != null">
-      and  ip = #{ip} 
+    <if test="keyword != null and keyword != ''">
+      and  (ip like '%${keyword}%' or methodName like '%${keyword}%') 
     </if>
     </where>
     </select>  
