@@ -20,18 +20,20 @@ import com.inca.entity.pub.view.CustomerView;
 import com.inca.service.CustomerService;
 import com.inca.service.OptionNewService;
 import com.inca.utils.OptionMap;
+import com.inca.utils.excel.ExcelController;
 
 
 @Controller
 @RequestMapping(CustomerControler.FUNC_PATH)
-public class CustomerControler {
+public class CustomerControler extends ExcelController<CustomerView,Customer>{
     public static final String FUNC_PATH = "/DTA001";
 	@Autowired
 	CustomerService customerService;
 	
 	@Autowired
 	OptionNewService optionNewService;
-	
+	@Autowired
+	CustomerView customerView;
 	@ModelAttribute("funcPath")
     public String funcPath() {
         return FUNC_PATH;
@@ -215,11 +217,14 @@ public class CustomerControler {
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			map.put("success", false);
 			map.put("msg", "停用失败:" + e.getMessage());
 		}
 		return map;
 	}
+@Override
+public CustomerView getEntity() {
+	return customerView;
+}
 }

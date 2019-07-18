@@ -1,15 +1,21 @@
 package com.inca.entity.pub.view;
 
-import com.inca.entity.pub.Customer;
+import org.springframework.stereotype.Component;
 
+import com.inca.entity.pub.Customer;
+import com.inca.utils.excel.ExcelVOAttribute;
+@Component
 public class CustomerView extends Customer {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6433891937639353205L;
+	@ExcelVOAttribute(name="客户类型",column="D")
 	private String typeView;
     private String statusView;
+	@ExcelVOAttribute(name="停用日期",column="G")
     private String stopDateView;
+    @ExcelVOAttribute(name="启用日期",column="F")
     private String onLineDateView;
     private String createTimeView;
 	public String getTypeView() {

@@ -15,16 +15,21 @@ import com.inca.entity.pub.view.CustomerView;
 import com.inca.mapper.CustomerMapper;
 import com.inca.service.CustomerService;
 import com.inca.utils.OptionMap;
+import com.inca.utils.excel.ExcelService;
 
 @Service
 @Transactional(rollbackFor=Exception.class)
-public class CustomerServiceImpl  implements CustomerService {
+public class CustomerServiceImpl extends ExcelService<CustomerView> implements CustomerService {
     @Autowired
     CustomerMapper customerMapper;
+    
+    List<CustomerView> expList;
 	@Override
 	public List<CustomerView> getCustomerList(){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-
+		if(expList!=null&&expList.size()!=0){
+			expList.clear();
+		}
 		List<CustomerView> customerList = customerMapper.getCustomerList();
 		customerList.stream().forEach(c->{c.setTypeView(OptionMap.getValue("customertype", c.getType()));
 										  c.setStatusView(OptionMap.getValue("status", c.getStatus()));
@@ -45,6 +50,7 @@ public class CustomerServiceImpl  implements CustomerService {
 										  }
 										 
 		});
+		expList = customerList;
 		return customerList;
 	}
     //新增客户
@@ -86,9 +92,12 @@ public class CustomerServiceImpl  implements CustomerService {
 	}
 	@Override
 	public List<CustomerView> getCustomerListByKeyWord(String keyWord) {
-		// TODO Auto-generated method stub
+		if(expList!=null&&expList.size()!=0){
+			expList.clear();
+		}
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		List<CustomerView> customerList = customerMapper.getCustomerListByKeyWord(keyWord);
+		expList = customerList;
 		customerList.stream().forEach(c->{c.setTypeView(OptionMap.getValue("customertype", c.getType()));
 		  c.setStatusView(OptionMap.getValue("status", c.getStatus()));
 		  if(c.getOnlineDate()!=null){
@@ -152,5 +161,8 @@ public class CustomerServiceImpl  implements CustomerService {
 		int  h=customerMapper.updateStatus(customer);
 		return h;
 	}
-
+	@Override
+	public List<CustomerView> getExportList() {
+		return expList;
+	}
 }

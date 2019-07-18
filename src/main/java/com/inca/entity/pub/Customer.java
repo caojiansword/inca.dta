@@ -3,10 +3,14 @@ package com.inca.entity.pub;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Table;
+
 import org.springframework.stereotype.Component;
 
 import com.inca.entity.BaseEntity;
+import com.inca.utils.excel.ExcelVOAttribute;
 @Component
+@Table(name="pub_customer")
 public class Customer extends BaseEntity implements Serializable {
 
 	/**
@@ -15,24 +19,23 @@ public class Customer extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = -7413903709562215395L;
 	
 	private Integer id;
-	
+	@ExcelVOAttribute(name="客户名称",column="A")
 	private String customerName;
-	
+	@ExcelVOAttribute(name="客户编码",column="B")
 	private String customerCode;
-	
+	@ExcelVOAttribute(name="客户域名",column="C")
 	private String domain;
-	
 	private Integer type;
+	@ExcelVOAttribute(name="组织机构编码",column="H")
+	private String orgCode;
 	
 	private Integer status;
-	
+	@ExcelVOAttribute(name="联系方式",column="E")
 	private String phoneNo;
 	
 	private Date onlineDate;
-	
 	private Date stopDate;
 	
-	private String orgCode;
 	
 	
 	public Integer getId() {
