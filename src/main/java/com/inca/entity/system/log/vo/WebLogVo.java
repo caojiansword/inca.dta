@@ -14,7 +14,8 @@ public class WebLogVo extends BaseQuery {
 	String methodName;
 	String ip;
 	Integer webType;
-	
+	String accessTimeFrom;
+	String accessTimeTo;
 	public String getMethodName() {
 		return methodName;
 	}
@@ -32,6 +33,18 @@ public class WebLogVo extends BaseQuery {
 	}
 	public void setWebType(Integer webType) {
 		this.webType = webType;
+	}
+	public String getAccessTimeFrom() {
+		return accessTimeFrom;
+	}
+	public void setAccessTimeFrom(String accessTimeFrom) {
+		this.accessTimeFrom = accessTimeFrom;
+	}
+	public String getAccessTimeTo() {
+		return accessTimeTo;
+	}
+	public void setAccessTimeTo(String accessTimeTo) {
+		this.accessTimeTo = accessTimeTo;
 	}
 	
 	
