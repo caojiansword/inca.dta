@@ -27,7 +27,7 @@ public class ExcelController<T,I> {
 		try {
 			result = excelService.doExport(t);
 		} catch (Exception e) {
-			return Result.error(CodeMsg.EXPORT_ERROR);
+			return Result.error(CodeMsg.getError("导出异常:"+e.getMessage()));
 		}
 		return result;
 	}

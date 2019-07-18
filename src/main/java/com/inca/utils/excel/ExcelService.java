@@ -28,7 +28,7 @@ public class ExcelService<T> {
 			out = new FileOutputStream("D://export/"+sheetName);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			throw new RuntimeException("文件未找到");
+			throw new RuntimeException(e.getMessage());
 		}
 		Class<T> clazz = (Class<T>) t.getClass();
 		excelUtil = new ExcelUtil<>(clazz);
