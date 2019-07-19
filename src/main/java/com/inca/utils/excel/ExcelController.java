@@ -41,6 +41,10 @@ public class ExcelController<T> {
     public String doImportDialog(Model model, HttpSession session) throws Exception {
         return "excel/importdialog";
     }
+	@RequestMapping("/exportDialog")
+    public String exportDialog(Model model, HttpSession session) throws Exception {
+        return "excel/exportdialog";
+    }
 	
 	@RequestMapping("/import")
 	@ResponseBody
@@ -58,7 +62,7 @@ public class ExcelController<T> {
 	
 	@RequestMapping("/export")
 	@ResponseBody
-	public  Result<String> doExport(){
+	public  Result<String> doExport(@RequestParam(value="file",required=false) MultipartFile file,@RequestParam(value="exportfileRealPath",required = false) String path){
 		T t = getEntity();
 		Result<String> result = null;
 		try {

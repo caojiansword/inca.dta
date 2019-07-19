@@ -64,8 +64,9 @@ public abstract class ExcelService<T> {
 		}
 		String sheetName = "客户列表.xls";
 		FileOutputStream out = null;
+		String filePath = "D://export/"+sheetName;
 		try {
-			out = new FileOutputStream("D://export/"+sheetName);
+			out = new FileOutputStream(filePath);
 		} catch (FileNotFoundException e) { 
 			e.printStackTrace();
 			throw new RuntimeException(e.getMessage());
@@ -73,7 +74,7 @@ public abstract class ExcelService<T> {
 		Class<T> clazz = (Class<T>) t.getClass();
 		excelUtil = new ExcelUtil<>(clazz);
 		excelUtil.exportExcel(res,list, sheetName, out);
-		return  Result.success("导出成功");
+		return  Result.success("导出成功，地址："+filePath);
 	}
 
 	public List<T> getExportList() {
