@@ -21,6 +21,13 @@
   <insert id="insert"  useGeneratedKeys="true" keyProperty="id" parameterType="com.inca.entity.pub.Customer">
   insert into pub_customer (customerCode,customerName,domain,type,orgCode,status,phoneNo,createTime) values (#{customerCode},#{customerName},#{domain},#{type},#{orgCode},#{status},#{phoneNo},#{createTime})
   </insert>
+  <!-- 导入批量保存 -->
+  <insert id="saveForBatch"  useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+  insert into pub_customer (customerCode,customerName,domain,type,orgCode,status,phoneNo,createTime) values 
+  <foreach collection="list" item="customer" separator=",">
+     (#{customer.customerCode},#{customer.customerName},#{customer.domain},#{customer.type},#{customer.orgCode},#{customer.status},#{customer.phoneNo},#{customer.createTime})
+   </foreach>
+  </insert>
   <!--删除记录  -->
   <delete id="delete" parameterType="int">
    delete from pub_customer where id=#{id}

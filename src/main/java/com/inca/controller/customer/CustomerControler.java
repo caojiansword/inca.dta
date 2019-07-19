@@ -25,7 +25,7 @@ import com.inca.utils.excel.ExcelController;
 
 @Controller
 @RequestMapping(CustomerControler.FUNC_PATH)
-public class CustomerControler extends ExcelController<CustomerView,Customer>{
+public class CustomerControler extends ExcelController<CustomerView>{
     public static final String FUNC_PATH = "/DTA001";
 	@Autowired
 	CustomerService customerService;
@@ -63,12 +63,12 @@ public class CustomerControler extends ExcelController<CustomerView,Customer>{
 		//客户类型
 		if(!StringUtils.isEmpty(type)){
 			Integer typeInt = Integer.valueOf(type);
-			customers=customers.stream().filter(p->p.getType().equals(typeInt)).collect(Collectors.toList());
+			customers=customers.stream().filter(p->typeInt.equals(p.getType())).collect(Collectors.toList());
 		}
 		//状态
 		if(!StringUtils.isEmpty(status)){
 			Integer statusInt = Integer.valueOf(status);
-			customers=customers.stream().filter(p->p.getStatus().equals(statusInt)).collect(Collectors.toList());
+			customers=customers.stream().filter(p->statusInt.equals(p.getStatus())).collect(Collectors.toList());
 		}
 		return customers;
 	}
@@ -223,8 +223,22 @@ public class CustomerControler extends ExcelController<CustomerView,Customer>{
 		}
 		return map;
 	}
-@Override
-public CustomerView getEntity() {
-	return customerView;
-}
+	
+	/* 
+	* Description: 用于导出Model
+	* @return
+	*/
+	@Override
+	public CustomerView getEntity() {
+		return customerView;
+	}
+
+	/* 
+	* Description: 用于导入实体
+	* @return
+	*/
+	@Override
+	public Class<CustomerView> getClazz() {
+		return CustomerView.class;
+	}
 }

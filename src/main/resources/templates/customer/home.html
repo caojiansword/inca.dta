@@ -159,7 +159,7 @@
                         <a class="mini-button" plain="true" iconCls="icon-ok" onclick="doEnable">确定</a>
                         <a class="mini-button" plain="true" iconCls="icon-no" onclick="doStop()">停用</a>
                         <a class="mini-button" plain="true" iconCls="icon-upload" onclick="doExport()">导出</a>
-                    
+                        <a class="mini-button" plain="true" iconCls="icon-download" onclick="doImport()">导入</a>
                     </td>
                 </tr>
             </table>
@@ -178,9 +178,9 @@
             <div field="typeView" allowSort="true" headerAlign="center" align="center">客户类型</div>
             <div field="statusView" allowSort="true" headerAlign="center" align="center">状态</div>
             <div field="phoneNo" allowSort="true" headerAlign="center"  align="center">手机号</div>
-            <div field="onLineDateView" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="start_date">确定日期</div>
-            <div field="stopDateView" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="end_date">停用日期</div>
-            <div field="createTimeView" allowSort="true" headerAlign="center"  align="center" dateFormat="yyyy-MM-dd HH:mm:ss">创建时间</div>
+            <div field="onLineDate" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="start_date">确定日期</div>
+            <div field="stopDate" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="end_date">停用日期</div>
+            <div field="createTime" allowSort="true" headerAlign="center"  align="center" dateFormat="yyyy-MM-dd HH:mm:ss">创建时间</div>
         </div>
     </div>
 						</div>
@@ -261,6 +261,7 @@
         	$.ajax({
         		url:url,
         		success:function(data){
+        			debugger;
         			mini.alert(data.message);
         		},
         		error:function(data){
@@ -268,6 +269,11 @@
         			mini.alert(data.message);
         		}
         	});
+        }
+     // 打开导入弹出框
+        function doImport() {
+        	var url = /*[[@{{funcPath}/importDialog(funcPath=${funcPath})}]]*/;
+            mini.open(url);
         }
         // 查询
         function search(){

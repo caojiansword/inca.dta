@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.poi.hssf.usermodel.DVConstraint;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -41,11 +43,11 @@ public class ExcelUtil<T> {
         try {
             HSSFWorkbook workbook = new HSSFWorkbook(input);
             HSSFSheet sheet = workbook.getSheet(sheetName);
-            if (!sheetName.trim().equals("")) {
-                sheet = workbook.getSheet(sheetName);// 如果指定sheet名,则取指定sheet中的内容.
-            }
-            if (sheet == null) {
+            if (sheet == null || sheetName.trim().equals("")) {
                 sheet = workbook.getSheetAt(0); // 如果传入的sheet名不存在则默认指向第1个sheet.
+            }else{
+                sheet = workbook.getSheet(sheetName);// 如果指定sheet名,则取指定sheet中的内容.
+
             }
             int rows = sheet.getPhysicalNumberOfRows();
             if (rows > 0) {// 有数据时才处理
@@ -129,10 +131,9 @@ public class ExcelUtil<T> {
      * @param output     java输出流
      * @return 状态
      */
-    public boolean exportExcel(List<T> lists[], String sheetNames[], OutputStream output) {
+    public void exportExcel(HttpServletResponse res,List<T> lists[], String sheetNames[], OutputStream output) {
         if (lists.length != sheetNames.length) {
             System.out.println("数组长度不一致");
-            return false;
         }
         HSSFWorkbook workbook = new HSSFWorkbook();// 产生工作薄对象
         for (int ii = 0; ii < lists.length; ii++) {
@@ -188,14 +189,17 @@ public class ExcelUtil<T> {
             }
         }
         try {
-            output.flush();
-            workbook.write(output);
-            output.close();
-            return true;
+//        	 res.setContentType("application/octet-stream");
+//             res.setHeader("Content-disposition", "attachment;filename=createList.xls");//默认Excel名称
+        	 output.flush();
+             workbook.write(output);
+             output.close();
+//             res.flushBuffer();
+//             res.getOutputStream().flush();
+//             res.getOutputStream().close();
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Output is closed ");
-            return false;
         }
     }
  
@@ -208,7 +212,7 @@ public class ExcelUtil<T> {
      * @return 状态
      */
     @SuppressWarnings("unchecked")
-    public boolean exportExcel(List<T> list, String sheetName, OutputStream output) {
+    public void exportExcel(HttpServletResponse res,List<T> list, String sheetName, OutputStream output) {
         //此处 对类型进行转换
         List<T> ilist = new ArrayList<>();
         ilist.addAll(list);
@@ -216,7 +220,7 @@ public class ExcelUtil<T> {
         lists[0] = ilist;
         String[] sheetNames = new String[1];
         sheetNames[0] = sheetName;
-        return exportExcel(lists, sheetNames, output);
+        exportExcel(res,lists, sheetNames, output);
     }
  
     /**

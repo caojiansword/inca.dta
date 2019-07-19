@@ -3,16 +3,21 @@ package com.inca.service.impl;
 
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import com.inca.entity.pub.Customer;
 import com.inca.entity.pub.view.CustomerView;
 import com.inca.mapper.CustomerMapper;
+import com.inca.result.CodeMsg;
+import com.inca.result.Result;
 import com.inca.service.CustomerService;
 import com.inca.utils.OptionMap;
 import com.inca.utils.excel.ExcelService;
@@ -160,6 +165,44 @@ public class CustomerServiceImpl extends ExcelService<CustomerView> implements C
 		customer.setStopDate(new Date());
 		int  h=customerMapper.updateStatus(customer);
 		return h;
+	}
+	@Override
+	public Result<String> doImpSave(List<CustomerView> list) throws Exception{
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		List<CustomerView> list_old = this.customerMapper.getCustomerList();
+	    List<CustomerView> new_list =  list;
+	    for(CustomerView c : list_old){
+			new_list = new_list.stream().filter(cc->c.getCustomerCode().equals(cc.getCustomerCode())).collect(Collectors.toList());
+	    }
+		if(new_list == null || new_list.size() == 0){
+			throw new RuntimeException("没有可导入数据");
+		}
+		new_list.stream().forEach(c->{
+			String typeView = c.getTypeView();
+			if(!StringUtils.isEmpty(typeView)){
+			   Integer type = OptionMap.getKeyByValue("customertype", typeView);
+			   c.setType(type);
+			}
+			String onlineDateStr = c.getOnLineDateView();
+			String stopDateStr = c.getStopDateView();
+			try {
+				if(onlineDateStr != null){
+					Date onlineDate = sdf.parse(onlineDateStr);
+					c.setOnlineDate(onlineDate);	
+				}
+				if(stopDateStr!=null){
+					Date stopDate = sdf.parse(stopDateStr);
+					c.setStopDate(stopDate);
+				}
+				c.setStatus(0);//初始状态为临时
+				c.setCreateTime(new Date());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		});
+		this.customerMapper.saveForBatch(list);
+		return Result.success("导入成功");
 	}
 	@Override
 	public List<CustomerView> getExportList() {
