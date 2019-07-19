@@ -2,6 +2,7 @@ package com.inca.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.inca.entity.pub.Customer;
@@ -16,4 +17,5 @@ public interface CustomerMapper {
     CustomerView getCustomerById(Integer id);
     int updateStatus(Customer c);
     List<CustomerView> getCustomerListByCode(String code);
+	void saveForBatch(@Param("list") List<CustomerView> list);
 }

@@ -25,7 +25,7 @@ import com.inca.utils.excel.ExcelController;
 
 @Controller
 @RequestMapping(CustomerControler.FUNC_PATH)
-public class CustomerControler extends ExcelController<CustomerView,Customer>{
+public class CustomerControler extends ExcelController<CustomerView>{
     public static final String FUNC_PATH = "/DTA001";
 	@Autowired
 	CustomerService customerService;
@@ -223,8 +223,22 @@ public class CustomerControler extends ExcelController<CustomerView,Customer>{
 		}
 		return map;
 	}
-@Override
-public CustomerView getEntity() {
-	return customerView;
-}
+	
+	/* 
+	* Description: 用于导出Model
+	* @return
+	*/
+	@Override
+	public CustomerView getEntity() {
+		return customerView;
+	}
+
+	/* 
+	* Description: 用于导入实体
+	* @return
+	*/
+	@Override
+	public Class<CustomerView> getClazz() {
+		return CustomerView.class;
+	}
 }

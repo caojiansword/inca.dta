@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class OptionMap {
 	static Logger log = LoggerFactory.getLogger(OptionMap.class);
     private static Map<String,Map<Integer,String>> optionMap = new HashMap<>();
+    private static Map<String,Map<String,Integer>> optionMap2 = new HashMap<>();
     private static Map<String,String> options = new HashMap<>();
 	
     /**
@@ -72,7 +73,56 @@ public class OptionMap {
 		return String.valueOf(value);
 		
 	}
-    
+    /**
+     * 根据key(properties=左边为key)和value获取字段汉字显示
+     * @param key
+     * @param value
+     * @return
+     */
+    public static  Integer getKeyByValue(String key,String value) {
+		if(StringUtils.isEmpty(key)||StringUtils.isEmpty(value)){
+			return null;
+		}
+		if(optionMap2.get(key) != null){
+			//先从内存中取,没有的话再从文件中取
+	        Map<String,Integer> map = optionMap2.get(key);
+		    return map.get(value);
+		}else{
+			Properties properties = new Properties();
+		    // 使用ClassLoader加载properties配置文件生成对应的输入流
+		    InputStream in = OptionMap.class.getClassLoader().getResourceAsStream("option.properties");
+		    // 使用properties对象加载输入流
+		    try {
+				properties.load(in);
+				 //获取key对应的value值
+			    String property = properties.getProperty(key);
+		        Map<String,Integer> map = new HashMap<>();
+		        Integer real_key = null;
+			    if(!StringUtils.isEmpty(property)){
+			    	try {
+						property = new String(property.getBytes("ISO-8859-1"),"utf-8");
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+				    String[] key_values = property.split(",");
+				    for(String key_value:key_values ){
+				    	String[] kv = key_value.split(":");
+				    	map.put(kv[1],Integer.valueOf(kv[0]));
+				    	if(kv[1]!=null&&kv[1].equals(value));
+				    	real_key=Integer.valueOf(kv[0]);
+				    }
+			    }
+			    optionMap2.put(key, map);
+			    return real_key;
+			} catch (IOException e) {
+				log.error("get key error:"+e.getMessage());
+				e.printStackTrace();
+			}
+		   
+		}
+		return null;
+		
+	}
     /**
      * 根据key和value获取字段汉字显示
      * @param key
@@ -129,7 +179,6 @@ public class OptionMap {
 				options.put(key, json);
 		    }
 		}
-		
 	    return json;
 	}
 	public static void main(String[] args) throws IOException {
