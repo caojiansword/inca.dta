@@ -13,10 +13,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.inca.entity.pub.Customer;
 import com.inca.entity.pub.view.CustomerView;
+import com.inca.entity.system.log.view.WebLogView;
 import com.inca.mapper.CustomerMapper;
 import com.inca.result.CodeMsg;
+import com.inca.result.PageResult;
 import com.inca.result.Result;
 import com.inca.service.CustomerService;
 import com.inca.utils.OptionMap;
@@ -30,11 +34,13 @@ public class CustomerServiceImpl extends ExcelService<CustomerView> implements C
     
     List<CustomerView> expList;
 	@Override
-	public List<CustomerView> getCustomerList(){
+	public PageResult<CustomerView> getCustomerList(){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		if(expList!=null&&expList.size()!=0){
 			expList.clear();
 		}
+		expList = customerMapper.getCustomerList();
+		PageHelper.startPage(1, 100);
 		List<CustomerView> customerList = customerMapper.getCustomerList();
 		customerList.stream().forEach(c->{c.setTypeView(OptionMap.getValue("customertype", c.getType()));
 										  c.setStatusView(OptionMap.getValue("status", c.getStatus()));
@@ -55,8 +61,11 @@ public class CustomerServiceImpl extends ExcelService<CustomerView> implements C
 										  }
 										 
 		});
-		expList = customerList;
-		return customerList;
+		PageInfo<CustomerView> pageInfo = new PageInfo<>(customerList,100);
+		PageResult<CustomerView> pageResult = new  PageResult<>();
+		pageResult.setData(pageInfo.getList());
+		pageResult.setTotal(pageInfo.getTotal());
+		return pageResult;
 	}
     //新增客户
 	@Override
@@ -96,13 +105,14 @@ public class CustomerServiceImpl extends ExcelService<CustomerView> implements C
 		return h;
 	}
 	@Override
-	public List<CustomerView> getCustomerListByKeyWord(String keyWord) {
+	public PageResult<CustomerView> getCustomerListByKeyWord(String keyWord) {
 		if(expList!=null&&expList.size()!=0){
 			expList.clear();
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		expList = customerMapper.getCustomerListByKeyWord(keyWord);
+		PageHelper.startPage(1, 20);
 		List<CustomerView> customerList = customerMapper.getCustomerListByKeyWord(keyWord);
-		expList = customerList;
 		customerList.stream().forEach(c->{c.setTypeView(OptionMap.getValue("customertype", c.getType()));
 		  c.setStatusView(OptionMap.getValue("status", c.getStatus()));
 		  if(c.getOnlineDate()!=null){
@@ -121,7 +131,11 @@ public class CustomerServiceImpl extends ExcelService<CustomerView> implements C
 			 c.setCreateTimeView(null);
 		  }
     });
-		return customerList;
+		PageInfo<CustomerView> pageInfo = new PageInfo<>(customerList,100);
+		PageResult<CustomerView> pageResult = new  PageResult<>();
+		pageResult.setData(pageInfo.getList());
+		pageResult.setTotal(pageInfo.getTotal());
+		return pageResult;
 	}
 	@Override
 	public CustomerView getCustomerById(Integer id) {
@@ -172,35 +186,35 @@ public class CustomerServiceImpl extends ExcelService<CustomerView> implements C
 		List<CustomerView> list_old = this.customerMapper.getCustomerList();
 	    List<CustomerView> new_list =  list;
 	    for(CustomerView c : list_old){
-			new_list = new_list.stream().filter(cc->c.getCustomerCode().equals(cc.getCustomerCode())).collect(Collectors.toList());
+			new_list = new_list.stream().filter(cc->!c.getCustomerCode().equals(cc.getCustomerCode())).collect(Collectors.toList());
 	    }
-		if(new_list == null || new_list.size() == 0){
-			throw new RuntimeException("没有可导入数据");
-		}
-		new_list.stream().forEach(c->{
-			String typeView = c.getTypeView();
-			if(!StringUtils.isEmpty(typeView)){
-			   Integer type = OptionMap.getKeyByValue("customertype", typeView);
-			   c.setType(type);
-			}
-			String onlineDateStr = c.getOnLineDateView();
-			String stopDateStr = c.getStopDateView();
-			try {
-				if(onlineDateStr != null){
-					Date onlineDate = sdf.parse(onlineDateStr);
-					c.setOnlineDate(onlineDate);	
-				}
-				if(stopDateStr!=null){
-					Date stopDate = sdf.parse(stopDateStr);
-					c.setStopDate(stopDate);
-				}
-				c.setStatus(0);//初始状态为临时
-				c.setCreateTime(new Date());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		});
+//		if(new_list == null || new_list.size() == 0){
+//			throw new RuntimeException("没有可导入数据");
+//		}
+//		new_list.stream().forEach(c->{
+//			String typeView = c.getTypeView();
+//			if(!StringUtils.isEmpty(typeView)){
+//			   Integer type = OptionMap.getKeyByValue("customertype", typeView);
+//			   c.setType(type);
+//			}
+//			String onlineDateStr = c.getOnLineDateView();
+//			String stopDateStr = c.getStopDateView();
+//			try {
+//				if(onlineDateStr != null){
+//					Date onlineDate = sdf.parse(onlineDateStr);
+//					c.setOnlineDate(onlineDate);	
+//				}
+//				if(stopDateStr!=null){
+//					Date stopDate = sdf.parse(stopDateStr);
+//					c.setStopDate(stopDate);
+//				}
+//				c.setStatus(0);//初始状态为临时
+//				c.setCreateTime(new Date());
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			
+//		});
 		this.customerMapper.saveForBatch(list);
 		return Result.success("导入成功");
 	}

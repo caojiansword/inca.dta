@@ -4,12 +4,13 @@ import java.util.List;
 
 import com.inca.entity.pub.Customer;
 import com.inca.entity.pub.view.CustomerView;
+import com.inca.result.PageResult;
 
 public interface CustomerService {
 	//获取客户列表
-	public List<CustomerView> getCustomerList();
+	public PageResult<CustomerView> getCustomerList();
 	//按照关键字过滤客户列表
-	public List<CustomerView> getCustomerListByKeyWord(String keyWord);
+	public PageResult<CustomerView> getCustomerListByKeyWord(String keyWord);
     //客户管理-添加用户
 	public int addCustomer(Customer cm);
 	
