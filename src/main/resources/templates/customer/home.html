@@ -261,8 +261,12 @@
         	$.ajax({
         		url:url,
         		success:function(data){
-        			debugger;
-        			mini.alert(data.message);
+        			if(data.code=1000){
+        				mini.alert(data.result);
+        			}else{
+        				mini.alert(data.message);
+        			}
+        			
         		},
         		error:function(data){
         			debugger;
@@ -273,6 +277,11 @@
      // 打开导入弹出框
         function doImport() {
         	var url = /*[[@{{funcPath}/importDialog(funcPath=${funcPath})}]]*/;
+            mini.open(url);
+        }
+        // 打开导入弹出框(js因安全問題，不允許訪問本地路徑)
+        function doExport_bak() {
+        	var url = /*[[@{{funcPath}/exportDialog(funcPath=${funcPath})}]]*/;
             mini.open(url);
         }
         // 查询
