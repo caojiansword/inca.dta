@@ -60,15 +60,20 @@ public class CustomerControler extends ExcelController<CustomerView>{
 			//模糊匹配
 			customers = customerService.getCustomerListByKeyWord(keyword);
 		}
-		//客户类型
-		if(!StringUtils.isEmpty(type)){
+		// 客户类型
+		if (!StringUtils.isEmpty(type)) {
 			Integer typeInt = Integer.valueOf(type);
-			customers=customers.stream().filter(p->typeInt.equals(p.getType())).collect(Collectors.toList());
+			if (customers != null) {
+				customers = customers.stream().filter(p -> typeInt.equals(p.getType())).collect(Collectors.toList());
+			}
 		}
-		//状态
-		if(!StringUtils.isEmpty(status)){
+		// 状态
+		if (!StringUtils.isEmpty(status)) {
 			Integer statusInt = Integer.valueOf(status);
-			customers=customers.stream().filter(p->statusInt.equals(p.getStatus())).collect(Collectors.toList());
+			if (customers != null) {
+				customers = customers.stream().filter(p -> statusInt.equals(p.getStatus()))
+						.collect(Collectors.toList());
+			}
 		}
 		return customers;
 	}
