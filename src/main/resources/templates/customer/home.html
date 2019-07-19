@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -178,9 +178,9 @@
             <div field="typeView" allowSort="true" headerAlign="center" align="center">客户类型</div>
             <div field="statusView" allowSort="true" headerAlign="center" align="center">状态</div>
             <div field="phoneNo" allowSort="true" headerAlign="center"  align="center">手机号</div>
-            <div field="onLineDate" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="start_date">确定日期</div>
-            <div field="stopDate" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="end_date">停用日期</div>
-            <div field="createTime" allowSort="true" headerAlign="center"  align="center" dateFormat="yyyy-MM-dd HH:mm:ss">创建时间</div>
+            <div field="onLineDateView" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="start_date">确定日期</div>
+            <div field="stopDateView" allowSort="true" headerAlign="center" align="center" dateFormat="yyyy-MM-dd HH:mm:ss" id="end_date">停用日期</div>
+            <div field="createTimeView" allowSort="true" headerAlign="center"  align="center" dateFormat="yyyy-MM-dd HH:mm:ss">创建时间</div>
         </div>
     </div>
 						</div>
@@ -261,17 +261,12 @@
         	$.ajax({
         		url:url,
         		success:function(data){
-<<<<<<< HEAD
-        			debugger;
-        			mini.alert(data.message);
-=======
         			if(data.code=1000){
         				mini.alert(data.result);
         			}else{
         				mini.alert(data.message);
         			}
         			
->>>>>>> branch 'master' of https://github.com/caojiansword/inca.dta.git
         		},
         		error:function(data){
         			debugger;
@@ -284,14 +279,11 @@
         	var url = /*[[@{{funcPath}/importDialog(funcPath=${funcPath})}]]*/;
             mini.open(url);
         }
-<<<<<<< HEAD
-=======
         // 打开导入弹出框(js因安全問題，不允許訪問本地路徑)
         function doExport_bak() {
         	var url = /*[[@{{funcPath}/exportDialog(funcPath=${funcPath})}]]*/;
             mini.open(url);
         }
->>>>>>> branch 'master' of https://github.com/caojiansword/inca.dta.git
         // 查询
         function search(){
         	debugger;
