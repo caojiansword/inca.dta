@@ -2,12 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.inca.mapper.CustomerMapper">
   
-  <select id="getCustomerList" resultType ="CustomerView">
+  <select id="getCustomerList" parameterType="CustomerVo" resultType ="CustomerView">
        select id,customerName,customerCode,domain,type,status,phoneNo,orgCode,onlineDate,stopDate,createTime from pub_customer
-  </select>
-  <!--按关键字查询记录  -->
-  <select id="getCustomerListByKeyWord" resultType ="CustomerView" parameterType="string">
-       select id,customerName,customerCode,domain,type,status,phoneNo,orgCode,onlineDate,stopDate,createTime from pub_customer where customerName like CONCAT('%',#{key},'%') or customerCode like CONCAT('%',#{key},'%') 
+   <where>
+    <if test="keyword != null">
+      (customerName like CONCAT('%',#{keyword},'%') or customerCode like CONCAT('%',#{keyword},'%'))
+    </if>
+    <if test="type != null">
+     and type = #{type}
+    </if>
+    <if test="status != null">
+     and status = #{status}
+    </if>
+    </where>
   </select>
   <!--根据客户id查询记录  -->
   <select id="getCustomerById" resultType ="CustomerView">

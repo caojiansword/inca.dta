@@ -17,6 +17,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.inca.entity.pub.Customer;
 import com.inca.entity.pub.view.CustomerView;
+import com.inca.entity.pub.vo.CustomerVo;
 import com.inca.entity.system.log.view.WebLogView;
 import com.inca.mapper.CustomerMapper;
 import com.inca.result.CodeMsg;
@@ -34,32 +35,16 @@ public class CustomerServiceImpl extends ExcelService<CustomerView> implements C
     
     List<CustomerView> expList;
 	@Override
-	public PageResult<CustomerView> getCustomerList(){
+	public PageResult<CustomerView> getCustomerList(CustomerVo customerVo){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		if(expList!=null&&expList.size()!=0){
 			expList.clear();
 		}
-		expList = customerMapper.getCustomerList();
+		expList = customerMapper.getCustomerList(customerVo);
 		PageHelper.startPage(1, 100);
-		List<CustomerView> customerList = customerMapper.getCustomerList();
+		List<CustomerView> customerList = this.customerMapper.getCustomerList(customerVo);
 		customerList.stream().forEach(c->{c.setTypeView(OptionMap.getValue("customertype", c.getType()));
 										  c.setStatusView(OptionMap.getValue("status", c.getStatus()));
-										  if(c.getOnlineDate()!=null){
-											  c.setOnLineDateView(sdf.format(c.getOnlineDate()));
-										  }else{
-											  c.setOnLineDateView(null);
-										  }
-										  if(c.getStopDate()!=null){
-											  c.setStopDateView(sdf.format(c.getStopDate()));  
-										  }else{
-											  c.setStopDateView(null);  
-										  }
-										  if(c.getCreateTime()!=null){
-											 c.setCreateTimeView(sdf.format(c.getCreateTime())); 
-										  }else{
-											 c.setCreateTimeView(null);
-										  }
-										 
 		});
 		PageInfo<CustomerView> pageInfo = new PageInfo<>(customerList,100);
 		PageResult<CustomerView> pageResult = new  PageResult<>();
@@ -104,7 +89,7 @@ public class CustomerServiceImpl extends ExcelService<CustomerView> implements C
 		int  h=customerMapper.update(customer);
 		return h;
 	}
-	@Override
+	/*@Override
 	public PageResult<CustomerView> getCustomerListByKeyWord(String keyWord) {
 		if(expList!=null&&expList.size()!=0){
 			expList.clear();
@@ -136,7 +121,7 @@ public class CustomerServiceImpl extends ExcelService<CustomerView> implements C
 		pageResult.setData(pageInfo.getList());
 		pageResult.setTotal(pageInfo.getTotal());
 		return pageResult;
-	}
+	}*/
 	@Override
 	public CustomerView getCustomerById(Integer id) {
 		// TODO Auto-generated method stub
@@ -183,7 +168,7 @@ public class CustomerServiceImpl extends ExcelService<CustomerView> implements C
 	@Override
 	public Result<String> doImpSave(List<CustomerView> list) throws Exception{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		List<CustomerView> list_old = this.customerMapper.getCustomerList();
+		List<CustomerView> list_old = this.customerMapper.getCustomerList(null);
 	    List<CustomerView> new_list =  list;
 	    for(CustomerView c : list_old){
 			new_list = new_list.stream().filter(cc->!c.getCustomerCode().equals(cc.getCustomerCode())).collect(Collectors.toList());

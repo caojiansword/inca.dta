@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSONObject;
 import com.inca.entity.pub.Customer;
 import com.inca.entity.pub.view.CustomerView;
+import com.inca.entity.pub.vo.CustomerVo;
 import com.inca.result.PageResult;
 import com.inca.service.CustomerService;
 import com.inca.service.OptionNewService;
@@ -53,24 +54,8 @@ public class CustomerControler extends ExcelController<CustomerView>{
     }
 	@RequestMapping(value="/search")
 	@ResponseBody
-	public  PageResult<CustomerView> search(String keyword,String type,String status){
-		PageResult<CustomerView> customers = customerService.getCustomerList();
-		if(!StringUtils.isEmpty(keyword)){
-			//编码 名称精确匹配
-			//customers=customers.stream().filter(p->p.getCustomerName().equals(keyword)||p.getCustomerCode().equals(keyword)).collect(Collectors.toList());
-			//模糊匹配
-			customers = customerService.getCustomerListByKeyWord(keyword);
-		}
-		//客户类型
-		if(!StringUtils.isEmpty(type)){
-			Integer typeInt = Integer.valueOf(type);
-			customers=(PageResult<CustomerView>) customers.getData().stream().filter(p->p.getType().equals(typeInt)).collect(Collectors.toList());
-		}
-		//状态
-		if(!StringUtils.isEmpty(status)){
-			Integer statusInt = Integer.valueOf(status);
-			customers=(PageResult<CustomerView>) customers.getData().stream().filter(p->p.getStatus().equals(statusInt)).collect(Collectors.toList());
-		}
+	public  PageResult<CustomerView> search(CustomerVo customerVo){
+		PageResult<CustomerView> customers = customerService.getCustomerList(customerVo);
 		return customers;
 	}
 	/*
